@@ -1,3 +1,3 @@
-import Home from 'screen/Home';
-import Login from 'screen/Login';
+import Home from 'screens/Home';
+import Login from 'screens/Login';
 export {Home, Login};
