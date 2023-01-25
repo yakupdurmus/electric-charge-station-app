@@ -5,4 +5,4 @@ import Sharz from './sharz.json';
 import Volturun from './volturun.json';
 import ZES from './zes.json';
 
-export {Esarj, GCharge, PowerSarj, Sharz, Volturun, ZES};
+export default {Esarj, GCharge, PowerSarj, Sharz, Volturun, ZES};
