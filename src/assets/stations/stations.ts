@@ -1,8 +1,21 @@
-import Esarj from './esarj.json';
-import GCharge from './gcharge.json';
-import PowerSarj from './powersarj.json';
-import Sharz from './sharz.json';
-import Volturun from './volturun.json';
-import ZES from './zes.json';
+import {IAllStations} from 'interface/ISettings';
 
-export default {Esarj, GCharge, PowerSarj, Sharz, Volturun, ZES};
+const esarj = require('./esarj.json');
+const gcharge = require('./gcharge.json');
+const powersarj = require('./powersarj.json');
+const sharz = require('./sharz.json');
+const volturun = require('./volturun.json');
+const zes = require('./zes');
+
+const allStations: IAllStations[] = {
+  ...esarj,
+  ...gcharge,
+  ...powersarj,
+  ...sharz,
+  ...volturun,
+  ...zes,
+};
+
+export default {
+  allStations,
+};
