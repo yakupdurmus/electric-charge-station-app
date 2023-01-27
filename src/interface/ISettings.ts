@@ -4,7 +4,7 @@ export enum LANGUAGE {
   AR = 'ar',
 }
 
-export interface IAllStations {
+export interface IStation {
   name: string;
   latitude: number;
   longitude: number;

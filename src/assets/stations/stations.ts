@@ -1,21 +1,29 @@
-import {IAllStations} from 'interface/ISettings';
+import {IStation} from 'interface/ISettings';
 
-const esarj = require('./esarj.json');
-const gcharge = require('./gcharge.json');
-const powersarj = require('./powersarj.json');
-const sharz = require('./sharz.json');
-const volturun = require('./volturun.json');
-const zes = require('./zes');
+const esarj: IStation[] = require('./esarj.json');
+const gcharge: IStation[] = require('./gcharge.json');
+const powersarj: IStation[] = require('./powersarj.json');
+const sharz: IStation[] = require('./sharz.json');
+const volturun: IStation[] = require('./volturun.json');
+const zes: IStation[] = require('./zes');
 
-const allStations: IAllStations[] = {
-  ...esarj,
-  ...gcharge,
-  ...powersarj,
-  ...sharz,
-  ...volturun,
-  ...zes,
-};
+let allStations: IStation[] = [];
+
+allStations = allStations.concat(
+  esarj,
+  gcharge,
+  powersarj,
+  sharz,
+  volturun,
+  zes,
+);
 
 export default {
   allStations,
+  esarj,
+  gcharge,
+  powersarj,
+  sharz,
+  volturun,
+  zes,
 };
