@@ -1,63 +1,68 @@
-import React, {useRef, useState} from 'react';
-import {Image, SafeAreaView, StyleSheet, View} from 'react-native';
-import {Marker} from 'react-native-maps';
-import MapView, {PROVIDER_GOOGLE, Region} from 'react-native-maps';
+import React, {useEffect, useRef, useState} from 'react';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
+import MapView, {Region} from 'react-native-maps';
 
-import {SCREEN_HEIGHT, getMarkerListOfLocation} from 'helper/helper';
+import {getCurrentPosition} from 'helper/helper';
+
+import {GeolocationResponse} from '@react-native-community/geolocation';
+import Map from 'components/Map';
 import {IStation} from 'interface/ISettings';
-import stations from 'assets/stations/stations';
-import {marker} from 'assets/images';
+import StationInfoModal from 'components/StationInfoModal';
+import {Button} from 'common/Button';
+import {INIT_LOCATION} from 'constant/constants';
 
 const StationMap = () => {
   const mapView = useRef<MapView>();
-  const [markerList, setMarkerList] = useState<IStation[]>(stations.esarj);
-  const [_location, setLocation] = useState<Region>();
 
-  const initialRegion = {
-    latitude: 40.9858606,
-    longitude: 29.1328714,
-    latitudeDelta: 0.035,
-    longitudeDelta: 0.032,
+  const [currenctLocation, setCurrenctLocation] =
+    useState<Region>(INIT_LOCATION);
+
+  const [stationModalVisible, setStationModalVisible] = useState(false);
+  const [selectedStation, setSelectedStation] = useState<IStation>();
+
+  useEffect(() => {
+    getCurrentPosition((position: GeolocationResponse) => {
+      setCurrenctLocation({
+        ...currenctLocation,
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude,
+      });
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const onPressMarker = (station: IStation) => {
+    setSelectedStation(station);
+    setStationModalVisible(true);
   };
 
-  const onRegionChangeComplete = (region: Region) => {
-    setLocation(region);
-    const markers = getMarkerListOfLocation(region);
-    setMarkerList(markers);
+  const modalOnClose = () => {
+    setStationModalVisible(false);
+  };
+  const navigationButton = () => {
+    mapView.current?.animateToRegion(currenctLocation);
   };
 
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.safeareView}>
       <View style={styles.container}>
-        <MapView
-          ref={(ref: MapView) => (mapView.current = ref)}
-          initialRegion={initialRegion}
-          showsIndoorLevelPicker={false}
-          provider={PROVIDER_GOOGLE}
-          showsBuildings={false}
-          showsMyLocationButton
-          showsUserLocation
-          showsTraffic={false}
-          onRegionChangeComplete={onRegionChangeComplete}
-          style={styles.map}>
-          {markerList.map((item, index) => {
-            return (
-              <Marker
-                key={item.name + index}
-                coordinate={{
-                  latitude: item.latitude,
-                  longitude: item.longitude,
-                }}
-                title={item.name}>
-                <Image
-                  source={marker}
-                  style={styles.markerImage}
-                  resizeMode="contain"
-                />
-              </Marker>
-            );
-          })}
-        </MapView>
+        <Map
+          mapViewRef={mapView}
+          currenctLocation={currenctLocation}
+          onPressMarker={onPressMarker}
+        />
+        <StationInfoModal
+          station={selectedStation}
+          isVisible={stationModalVisible}
+          onClose={modalOnClose}
+        />
+        <View style={styles.bottomContainer}>
+          <Button
+            buttonType="green"
+            onPress={navigationButton}
+            label={'Bulunduğum Konumu Göster'}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -65,18 +70,19 @@ const StationMap = () => {
 export default StationMap;
 
 const styles = StyleSheet.create({
+  safeareView: {
+    flex: 1,
+  },
   container: {
     ...StyleSheet.absoluteFillObject,
-    height: SCREEN_HEIGHT,
     flex: 1,
     justifyContent: 'flex-end',
     alignItems: 'center',
   },
-  map: {
-    ...StyleSheet.absoluteFillObject,
+  bottomContainer: {
+    width: '80%',
+    position: 'absolute',
+    bottom: 30,
   },
-  markerImage: {
-    width: 30,
-    height: 41,
-  },
+  actionButtons: {},
 });

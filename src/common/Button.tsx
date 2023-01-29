@@ -61,12 +61,13 @@ const styles = StyleSheet.create({
   buttonStyle: {
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10,
+    padding: 8,
+    paddingHorizontal: 12,
+    borderRadius: 3,
   },
   bordered: {
     borderWidth: 1,
     borderColor: COLOR.lightGray,
-    borderRadius: 3,
   },
   textStyle: {},
   left: {
@@ -77,26 +78,21 @@ const styles = StyleSheet.create({
   },
   light: {
     backgroundColor: COLOR.lightGray2,
-    borderRadius: 3,
   },
   orange: {
     backgroundColor: COLOR.lightGrayishOrange,
     color: COLOR.white,
-    borderRadius: 3,
   },
   yellow: {
     backgroundColor: COLOR.lightGrayishRed1,
     color: COLOR.white,
-    borderRadius: 3,
   },
   smokeyellow: {
     backgroundColor: COLOR.lightGrayishYellow,
     color: COLOR.white,
-    borderRadius: 3,
   },
   green: {
-    backgroundColor: COLOR.lightGrayishRed1,
+    backgroundColor: COLOR.green,
     color: COLOR.white,
-    borderRadius: 3,
   },
 });

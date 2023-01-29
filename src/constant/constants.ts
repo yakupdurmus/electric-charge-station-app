@@ -12,6 +12,7 @@ const COLOR = {
   lightGrayishOrange: '#ECE4DB',
   lightGrayishYellow: '#E8E8E4',
   lightGrayishCyan: '#D8E2DC',
+  green: '#3C6255',
   black30: 'rgba(0,0,0,0.30)',
   black60: 'rgba(0,0,0,0.60)',
   black80: 'rgba(0,0,0,0.80)',
@@ -20,4 +21,11 @@ const COLOR = {
 
 const INPUTMASK = {mask: '0999 999 99 99'};
 
-export {COLOR, INPUTMASK};
+const INIT_LOCATION = {
+  latitude: 41.2858606,
+  longitude: 29.1328714,
+  latitudeDelta: 0.035,
+  longitudeDelta: 0.032,
+};
+
+export {COLOR, INPUTMASK, INIT_LOCATION};
