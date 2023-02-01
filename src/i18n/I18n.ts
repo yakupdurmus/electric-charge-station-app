@@ -1,17 +1,13 @@
-import I18n from 'react-native-i18n';
+import {getCountry} from 'react-native-localize';
 import en from 'i18n/locales/en';
 import ar from 'i18n/locales/ar';
 import tr from 'i18n/locales/tr';
 import {CONFIG} from 'config';
 
-I18n.fallbacks = true;
-
-I18n.translations = {
+const translate: any = {
   en,
   ar,
   tr,
 };
 
-I18n.defaultLocale = CONFIG.defaultLanguage;
-
-export default I18n;
+export default translate[getCountry()] || translate[CONFIG.defaultLanguage];

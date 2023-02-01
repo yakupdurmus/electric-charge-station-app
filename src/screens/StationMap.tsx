@@ -10,6 +10,7 @@ import {IStation} from 'interface/ISettings';
 import StationInfoModal from 'components/StationInfoModal';
 import {Button} from 'common/Button';
 import {INIT_LOCATION} from 'constant/constants';
+const ANIMATION_DURATION = 200;
 
 const StationMap = () => {
   const mapView = useRef<MapView>();
@@ -27,6 +28,7 @@ const StationMap = () => {
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
       });
+      mapView.current?.animateToRegion(currenctLocation, ANIMATION_DURATION);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -34,13 +36,19 @@ const StationMap = () => {
   const onPressMarker = (station: IStation) => {
     setSelectedStation(station);
     setStationModalVisible(true);
+    const location = {
+      ...currenctLocation,
+      latitude: station.latitude,
+      longitude: station.longitude,
+    };
+    mapView.current?.animateToRegion(location, ANIMATION_DURATION);
   };
 
   const modalOnClose = () => {
     setStationModalVisible(false);
   };
   const navigationButton = () => {
-    mapView.current?.animateToRegion(currenctLocation);
+    mapView.current?.animateToRegion(currenctLocation, ANIMATION_DURATION);
   };
 
   return (

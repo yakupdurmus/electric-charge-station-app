@@ -1,7 +1,7 @@
 import {CONFIG} from 'config';
 import {getItem} from './Storage';
 
-import {Alert, Dimensions, Platform} from 'react-native';
+import {Alert, Dimensions, Platform, Linking} from 'react-native';
 import {Region} from 'react-native-maps';
 import {IStation} from 'interface/ISettings';
 import stations from 'assets/stations/stations';
@@ -102,6 +102,15 @@ export const getCurrentPosition = (
     authorizationLevel: 'whenInUse',
     locationProvider: 'playServices',
   };
+  checkLocationPermission(value => {
+    if (value === false) {
+      console.log('Konum bilgisi alınamadı');
+      GeoLocationCommunity.requestAuthorization(() =>
+        getCurrentPosition(success),
+      );
+    }
+  });
+
   GeoLocationCommunity.setRNConfiguration(config);
   GeoLocationCommunity.getCurrentPosition(
     position => {
@@ -116,5 +125,39 @@ export const getCurrentPosition = (
         Alert.alert('Konum bilgisi alınamadı tekarar deneyiniz.');
       }
     },
+    undefined,
   );
+};
+
+export const openMap = async (
+  latitude?: number,
+  longitude?: number,
+  openWith?: 'appleMaps' | 'googleMaps' | 'yandexMaps',
+): Promise<boolean> => {
+  const googleMaps = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&mode=d`;
+  const appleMaps = `maps://app?daddr=${latitude},${longitude}&dirflg=d&t=m`;
+
+  const url: any = Platform.select({
+    ios: openWith === 'googleMaps' ? googleMaps : appleMaps,
+    android: googleMaps,
+  });
+
+  if (!url) {
+    return false;
+  }
+
+  try {
+    const supported = await Linking.canOpenURL(url);
+
+    if (supported) {
+      Linking.openURL(url).then(() => {
+        return true;
+      });
+    }
+
+    return false;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };

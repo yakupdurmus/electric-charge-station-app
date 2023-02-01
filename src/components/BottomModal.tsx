@@ -10,6 +10,7 @@ interface IProps {
   onClose?: () => void;
   onHide?: () => void;
   children?: JSX.Element;
+  modalTopComponent?: JSX.Element;
   title?: string;
 }
 
@@ -25,14 +26,17 @@ export default function BottomModal(props: IProps) {
       swipeDirection={['down']}
       style={styles.modalStyle}
       propagateSwipe={true}>
-      <View style={styles.contentStyle}>
-        <View style={styles.title}>
-          <Label numberOfLines={1} style={styles.titleLabel}>
-            {props.title}
-          </Label>
-          <Button onPress={props.onClose} label={'Kapat'} />
+      <View>
+        {props.modalTopComponent}
+        <View style={styles.contentStyle}>
+          <View style={styles.title}>
+            <Label numberOfLines={1} style={styles.titleLabel}>
+              {props.title}
+            </Label>
+            <Button onPress={props.onClose} label={'Kapat'} />
+          </View>
+          <View>{props.children}</View>
         </View>
-        <View>{props.children}</View>
       </View>
     </Modal>
   );
