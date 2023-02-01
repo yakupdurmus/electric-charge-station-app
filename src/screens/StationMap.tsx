@@ -2,11 +2,11 @@ import React, {useEffect, useRef, useState} from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import MapView, {Region} from 'react-native-maps';
 
-import {getCurrentPosition} from 'helper/helper';
+import {getCurrentPosition, openMap} from 'helper/helper';
 
 import {GeolocationResponse} from '@react-native-community/geolocation';
 import Map from 'components/Map';
-import {IStation} from 'interface/ISettings';
+import {IStation, MapType} from 'interface/ISettings';
 import StationInfoModal from 'components/StationInfoModal';
 import {Button} from 'common/Button';
 import {INIT_LOCATION} from 'constant/constants';
@@ -50,6 +50,13 @@ const StationMap = () => {
   const navigationButton = () => {
     mapView.current?.animateToRegion(currenctLocation, ANIMATION_DURATION);
   };
+  const onPressNavigateLocation = () => {
+    setStationModalVisible(false);
+    mapView.current?.animateToRegion(currenctLocation, ANIMATION_DURATION);
+  };
+  const onPressOpenMap = (type: MapType, station?: IStation) => {
+    openMap(station?.latitude, station?.longitude, type);
+  };
 
   return (
     <SafeAreaView style={styles.safeareView}>
@@ -63,6 +70,8 @@ const StationMap = () => {
           station={selectedStation}
           isVisible={stationModalVisible}
           onClose={modalOnClose}
+          onPressNavigateLocation={onPressNavigateLocation}
+          onPressOpenMap={onPressOpenMap}
         />
         <View style={styles.bottomContainer}>
           <Button

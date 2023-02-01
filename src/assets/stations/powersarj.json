@@ -2,7 +2,8 @@
   {
     "map_id": "3",
     "address": "37.2064955,33.3128142",
-    "description": "<p>Organize Sanayi B\u00f6lgesi 9.Cadde No:1</p><p><a href=\"tel:+90 338 224 13 60\">+90 338 224 13 60</a></p><p>POWER\u015eARJ - White Rose Fabrika - 1x22 kW AC - Fabrika a\u00e7\u0131k otopark alan\u0131.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Organize Sanayi B\u00f6lgesi 9.Cadde No:1</p><p><a href=\"tel:+90 338 224 13 60\">+90 338 224 13 60</a></p><p>POWER\u015eARJ - White Rose Fabrika - 1x22 kW AC - Fabrika a\u00e7\u0131k otopark alan\u0131.</p><p>Type 2 1-Plug</p>",
     "pic": "https://www.powersarj.com/wp-content/uploads/2022/12/tesla-powersarj.webp",
     "link": "",
     "icon": {
@@ -36,7 +37,8 @@
   {
     "map_id": "3",
     "address": "37.2063524,33.3132385",
-    "description": "<p>Organize Sanayi B\u00f6lgesi 9.Cadde No:1 Merkez/KARAMAN</p><p><a href=\"tel:+90 338 224 13 60\">+90 338 224 13 60</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>POWER\u015eARJ - White Rose Fabrika - 2x22 kW AC - Fabrika kapal\u0131 otopark alan\u0131.</p><p>Type 2 2-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Organize Sanayi B\u00f6lgesi 9.Cadde No:1 Merkez/KARAMAN</p><p><a href=\"tel:+90 338 224 13 60\">+90 338 224 13 60</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>POWER\u015eARJ - White Rose Fabrika - 2x22 kW AC - Fabrika kapal\u0131 otopark alan\u0131.</p><p>Type 2 2-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -64,7 +66,8 @@
   {
     "map_id": "3",
     "address": "37.2063018,33.313507",
-    "description": "<p>Organize Sanayi B\u00f6lgesi 9.Cadde No:1 Merkez/KARAMAN</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>CCS/SAE 2 Plugs</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Organize Sanayi B\u00f6lgesi 9.Cadde No:1 Merkez/KARAMAN</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>CCS/SAE 2 Plugs</p>",
     "pic": "https://www.powersarj.com/wp-content/uploads/2022/12/organize-whiterose-onu.webp",
     "link": "",
     "icon": {
@@ -98,7 +101,8 @@
   {
     "map_id": "3",
     "address": "37.19609, 33.23894",
-    "description": "<p>Recep Tayyip Erdo\u011fan bulvar\u0131 52/A - 52/B 1. Organize yolu \u00fczeri. Merkez/KARAMAN</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Recep Tayyip Erdo\u011fan bulvar\u0131 52/A - 52/B 1. Organize yolu \u00fczeri. Merkez/KARAMAN</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -126,7 +130,8 @@
   {
     "map_id": "3",
     "address": "37.21836, 33.29828",
-    "description": "<p>Organize Sanayi B\u00f6lgesi Mh, Ere\u011fli Cd. No:228, 70140</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Organize Sanayi B\u00f6lgesi Mh, Ere\u011fli Cd. No:228, 70140</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -154,7 +159,8 @@
   {
     "map_id": "3",
     "address": "37.18016, 33.2623",
-    "description": "<p>Hamidiye, \u0130brahim \u00d6ktem Cd. No:69, 70100 Karaman Merkez/Karaman</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Hamidiye, \u0130brahim \u00d6ktem Cd. No:69, 70100 Karaman Merkez/Karaman</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -182,7 +188,8 @@
   {
     "map_id": "3",
     "address": "41.01497, 29.18575",
-    "description": "<p>Mehmet Akif Ersoy, Refah Sk. No:29 D:2, 34782 Dudullu Osb/\u00c7ekmek\u00f6y/\u0130stanbul</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Mehmet Akif Ersoy, Refah Sk. No:29 D:2, 34782 Dudullu Osb/\u00c7ekmek\u00f6y/\u0130stanbul</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -210,7 +217,8 @@
   {
     "map_id": "3",
     "address": "38.46504, 27.25561",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -238,7 +246,8 @@
   {
     "map_id": "3",
     "address": "37.97962, 34.72431",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -266,7 +275,8 @@
   {
     "map_id": "3",
     "address": "37.01356, 35.28977",
-    "description": "<p>G\u00fczelevler, Me\u015fe Cd. no:48/1, 01170 Y\u00fcre\u011fir/Adana</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>G\u00fczelevler, Me\u015fe Cd. no:48/1, 01170 Y\u00fcre\u011fir/Adana</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -294,7 +304,8 @@
   {
     "map_id": "3",
     "address": "38.7073, 35.51006",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -322,7 +333,8 @@
   {
     "map_id": "3",
     "address": "37.20758, 33.30877",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -350,7 +362,8 @@
   {
     "map_id": "3",
     "address": "37.19104, 33.20899",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -378,7 +391,8 @@
   {
     "map_id": "3",
     "address": "37.18564, 33.22224",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -406,7 +420,8 @@
   {
     "map_id": "3",
     "address": "37.18453, 33.23578",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -434,7 +449,8 @@
   {
     "map_id": "3",
     "address": "37.18052, 33.24535",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -462,7 +478,8 @@
   {
     "map_id": "3",
     "address": "37.17979, 33.2451",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -490,7 +507,8 @@
   {
     "map_id": "3",
     "address": "37.18691, 33.18014",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -518,7 +536,8 @@
   {
     "map_id": "3",
     "address": "37.18724, 33.17944",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -546,7 +565,8 @@
   {
     "map_id": "3",
     "address": "37.23322, 32.95578",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -574,7 +594,8 @@
   {
     "map_id": "3",
     "address": "40.93471, 29.12107",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -602,7 +623,8 @@
   {
     "map_id": "3",
     "address": "41.07914, 29.16003",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -630,7 +652,8 @@
   {
     "map_id": "3",
     "address": "41.12792, 29.16096",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -658,7 +681,8 @@
   {
     "map_id": "3",
     "address": "41.09631, 28.78802",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -686,7 +710,8 @@
   {
     "map_id": "3",
     "address": "41.03556, 29.07028",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -714,7 +739,8 @@
   {
     "map_id": "3",
     "address": "40.69513, 29.64627",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -742,7 +768,8 @@
   {
     "map_id": "3",
     "address": "42.42705, 18.76898",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -770,7 +797,8 @@
   {
     "map_id": "3",
     "address": "37.8267, 32.44435",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -798,7 +826,8 @@
   {
     "map_id": "3",
     "address": "37.83043, 32.44208",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -826,7 +855,8 @@
   {
     "map_id": "3",
     "address": "37.89259, 32.4423",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -854,7 +884,8 @@
   {
     "map_id": "3",
     "address": "37.89772, 32.50776",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -882,7 +913,8 @@
   {
     "map_id": "3",
     "address": "37.90894, 32.51729",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -910,7 +942,8 @@
   {
     "map_id": "3",
     "address": "37.90328, 32.54611",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -938,7 +971,8 @@
   {
     "map_id": "3",
     "address": "37.91134, 32.55198",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -966,7 +1000,8 @@
   {
     "map_id": "3",
     "address": "37.92016, 32.53734",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -994,7 +1029,8 @@
   {
     "map_id": "3",
     "address": "37.919710, 32.537011",
-    "description": "<p>Fevzi \u00c7akmak 10641. SK. NO:36 42050 Horozluhan OSB/KARATAY/KONYA</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>CCS/SAE 2 Plugs</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Fevzi \u00c7akmak 10641. SK. NO:36 42050 Horozluhan OSB/KARATAY/KONYA</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>CCS/SAE 2 Plugs</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1022,7 +1058,8 @@
   {
     "map_id": "3",
     "address": "37.93568, 32.51236",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1050,7 +1087,8 @@
   {
     "map_id": "3",
     "address": "37.95591, 32.52613",
-    "description": "<p>Sancak Mah. Cemaleddin Aksarayi Sok. No: 3/A Sel\u00e7uklu \u2013 KONYA</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Sancak Mah. Cemaleddin Aksarayi Sok. No: 3/A Sel\u00e7uklu \u2013 KONYA</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1078,7 +1116,8 @@
   {
     "map_id": "3",
     "address": "37.95537, 32.50422",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1106,7 +1145,8 @@
   {
     "map_id": "3",
     "address": "37.95196, 32.47845",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Type 2 1-Plug</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1134,7 +1174,8 @@
   {
     "map_id": "3",
     "address": "37.23591, 31.91855",
-    "description": "<p>Madenli Mah. D\u00fcden\u00f6n\u00fc T\u0131naztepe Sk. No:8/A Seydi\u015fehir Konya</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 160 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Madenli Mah. D\u00fcden\u00f6n\u00fc T\u0131naztepe Sk. No:8/A Seydi\u015fehir Konya</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 160 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1162,7 +1203,8 @@
   {
     "map_id": "3",
     "address": "37.545, 33.99213",
-    "description": "<p>Kargac\u0131, D330, 42310 Ere\u011fli/Konya, Turkey</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 160 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Kargac\u0131, D330, 42310 Ere\u011fli/Konya, Turkey</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 160 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1190,7 +1232,8 @@
   {
     "map_id": "3",
     "address": "37.925520729840436, 32.53219751903152",
-    "description": "<p>Fevzi\u00e7akmak, 10636. Sk. 8 A, 42050 Karatay/Konya</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 120 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Fevzi\u00e7akmak, 10636. Sk. 8 A, 42050 Karatay/Konya</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 120 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1218,7 +1261,8 @@
   {
     "map_id": "3",
     "address": "37.97763, 34.71121",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 120 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 120 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1246,7 +1290,8 @@
   {
     "map_id": "3",
     "address": "37.20716, 33.30754",
-    "description": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1274,7 +1319,8 @@
   {
     "map_id": "3",
     "address": "37.806160933879475, 34.21456007314773",
-    "description": "<p>Zengen Mh. E-90 Karayolu, K\u00fcme Evler No:10, 42310 Konya</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 160 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Zengen Mh. E-90 Karayolu, K\u00fcme Evler No:10, 42310 Konya</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 160 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
     "pic": "",
     "link": "",
     "icon": {
@@ -1302,7 +1348,8 @@
   {
     "map_id": "3",
     "address": "37.806801119165726, 34.21262113491923",
-    "description": "<p>Zengen, 42345 Ere\u011fli/Konya</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 120 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
+    "stationType": "powersarj",
+    "stationAddress": "<p>Zengen, 42345 Ere\u011fli/Konya</p><p><a href=\"tel:+90 850 308 9696\">+90 850 308 9696</a></p><p>\u00dccretlendirme bilgisi i\u00e7in POWER\u015eARJ mobil uygulamas\u0131n\u0131 kontrol edebilirsiniz.</p><p>Y\u00fcksek H\u0131zl\u0131 DC \u015earj \u0130stasyonu - 120 kW DC - Android Uygulama: <a href=\"http://bit.ly/3uPIzqJ\" target=\"_blank\" rel=\"nofollow noopener\">http://bit.ly/3uPIzqJ</a> - iOS Uygulama: <a href=\"https://apple.co/3BzRBf8\" target=\"_blank\" rel=\"nofollow noopener\">https://apple.co/3BzRBf8</a></p><p>CCS/SAE 2 Plugs</p>",
     "pic": "",
     "link": "",
     "icon": {

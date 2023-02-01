@@ -1,23 +1,23 @@
 import React from 'react';
 import BottomModal from './BottomModal';
-import {IStation} from 'interface/ISettings';
+import {IStation, MapType} from 'interface/ISettings';
 import {Platform, StyleSheet, View} from 'react-native';
 import {Button} from 'common/Button';
-import {openMap} from 'helper/helper';
+import {Label} from 'common/Label';
 
 const StationInfoModal = ({
   isVisible,
   onClose,
   station,
+  onPressOpenMap,
+  onPressNavigateLocation,
 }: {
   isVisible: boolean;
   station?: IStation;
   onClose?: () => void;
+  onPressOpenMap: (type: MapType, station?: IStation) => void;
+  onPressNavigateLocation: () => void;
 }) => {
-  const onPressOpenMap = () => {
-    openMap(station?.latitude, station?.longitude);
-  };
-
   return (
     <BottomModal
       isVisible={isVisible}
@@ -25,23 +25,27 @@ const StationInfoModal = ({
       title={station?.name || 'Elektrikli Şarj İstasyonu'}>
       <View>
         <View style={styles.content}>
+          <Label style={styles.labelStyle}>
+            {station?.stationType.toUpperCase()}
+          </Label>
+          <Label style={styles.labelStyle}>{station?.stationAddress}</Label>
           <Button
             buttonType="light"
-            onPress={onPressOpenMap}
+            onPress={() => onPressOpenMap('googleMaps', station)}
             label={'Googe Maps ile Yol Tarifi Al'}
             style={styles.buttonStlye}
           />
           {Platform.OS === 'ios' ? (
             <Button
               buttonType="light"
-              onPress={onPressOpenMap}
+              onPress={() => onPressOpenMap('appleMaps', station)}
               label={'Apple Maps ile Yol Tarifi Al'}
               style={styles.buttonStlye}
             />
           ) : null}
           <Button
             buttonType="green"
-            onPress={onPressOpenMap}
+            onPress={onPressNavigateLocation}
             label={'Bulunduğum Konumu Göster'}
           />
         </View>
@@ -57,6 +61,9 @@ const styles = StyleSheet.create({
     marginVertical: 24,
   },
   buttonStlye: {
+    marginBottom: 8,
+  },
+  labelStyle: {
     marginBottom: 8,
   },
 });

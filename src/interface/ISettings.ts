@@ -8,4 +8,8 @@ export interface IStation {
   name: string;
   latitude: number;
   longitude: number;
+  stationAddress: string;
+  stationType: 'zes' | 'volturun' | 'sharz' | 'powersarj' | 'gcharge' | 'esarj';
 }
+
+export type MapType = 'appleMaps' | 'googleMaps' | 'yandexMaps';

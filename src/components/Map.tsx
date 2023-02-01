@@ -1,4 +1,4 @@
-import React, {StyleSheet, Image} from 'react-native';
+import React, {StyleSheet, Image, View} from 'react-native';
 import {getStationsByLocation} from 'helper/helper';
 import {marker} from 'assets/images';
 import MapView, {Marker, PROVIDER_GOOGLE, Region} from 'react-native-maps';
@@ -45,11 +45,13 @@ const Map = ({
               latitude: item.latitude,
               longitude: item.longitude,
             }}>
-            <Image
-              source={marker}
-              style={styles.markerImage}
-              resizeMode="contain"
-            />
+            <View>
+              <Image
+                source={marker}
+                style={styles.markerImage}
+                resizeMode="contain"
+              />
+            </View>
           </Marker>
         );
       })}

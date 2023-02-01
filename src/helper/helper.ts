@@ -3,7 +3,7 @@ import {getItem} from './Storage';
 
 import {Alert, Dimensions, Platform, Linking} from 'react-native';
 import {Region} from 'react-native-maps';
-import {IStation} from 'interface/ISettings';
+import {IStation, MapType} from 'interface/ISettings';
 import stations from 'assets/stations/stations';
 
 import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
@@ -132,7 +132,7 @@ export const getCurrentPosition = (
 export const openMap = async (
   latitude?: number,
   longitude?: number,
-  openWith?: 'appleMaps' | 'googleMaps' | 'yandexMaps',
+  openWith?: MapType,
 ): Promise<boolean> => {
   const googleMaps = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&mode=d`;
   const appleMaps = `maps://app?daddr=${latitude},${longitude}&dirflg=d&t=m`;
