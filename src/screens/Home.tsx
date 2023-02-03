@@ -12,8 +12,8 @@ import {setItem} from 'helper/Storage';
 import {Label} from 'common/Label';
 const HomeScreen = () => {
   const dispatch = useDispatch();
-  let collection = useSelector((state: IRootState) => state.collection);
-  console.log('collection.language', collection.language, I18nManager.isRTL);
+  let app = useSelector((state: IRootState) => state.app);
+  console.log('app.language', app.language, I18nManager.isRTL);
 
   const selectLang = (language: LANGUAGE) => {
     if (language === LANGUAGE.AR) {

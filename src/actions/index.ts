@@ -1,6 +1,6 @@
 import {ISettings, IUser} from 'interface';
 import {Dispatch} from 'redux';
-import {SETTINGS, USER, SET_LANGUAGE} from 'actions/types';
+import {SETTINGS, USER, SET_LANGUAGE, SET_ONBOARDING} from 'actions/types';
 import {LANGUAGE} from 'interface/ISettings';
 
 export const setSettings = (type: ISettings) => (dispatch: Dispatch) => {
@@ -13,6 +13,13 @@ export const setSettings = (type: ISettings) => (dispatch: Dispatch) => {
 export const setLanguage = (type: LANGUAGE) => (dispatch: Dispatch) => {
   dispatch({
     type: SET_LANGUAGE,
+    payload: type,
+  });
+};
+
+export const setOnBoarding = (type: boolean) => (dispatch: Dispatch) => {
+  dispatch({
+    type: SET_ONBOARDING,
     payload: type,
   });
 };
