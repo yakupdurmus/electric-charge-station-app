@@ -23,12 +23,13 @@ const StationMap = () => {
 
   useEffect(() => {
     getCurrentPosition((position: GeolocationResponse) => {
-      setCurrenctLocation({
+      const newLocation = {
         ...currenctLocation,
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
-      });
-      mapView.current?.animateToRegion(currenctLocation, ANIMATION_DURATION);
+      };
+      setCurrenctLocation(newLocation);
+      mapView.current?.animateToRegion(newLocation);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);

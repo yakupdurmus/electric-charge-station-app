@@ -1,3 +1,4 @@
 const marker = require('./marker.png');
+const locationPhone = require('./location-phone-612x612.jpeg');
 
-export {marker};
+export default {marker, locationPhone};

@@ -8,6 +8,7 @@ export default function Container() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name={'MapPermission'} component={Screen.MapPermission} />
         <Stack.Screen name={'StationMap'} component={Screen.StationMap} />
         <Stack.Screen name={'Home'} component={Screen.Home} />
         <Stack.Screen name={'Login'} component={Screen.Login} />
