@@ -17,6 +17,11 @@ export default function Router() {
         <Stack.Screen name={'StationMap'} component={Screen.StationMap} />
         <Stack.Screen name={'Home'} component={Screen.Home} />
         <Stack.Screen name={'Login'} component={Screen.Login} />
+        <Stack.Screen
+          name={'StationSearch'}
+          options={{presentation: 'modal'}}
+          component={Screen.StationSearch}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

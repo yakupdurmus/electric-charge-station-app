@@ -13,6 +13,7 @@ interface InputProps extends TextInputMaskProps {
   style?: any;
   isPhone?: any;
   value?: any;
+  placeholder?: string;
 }
 export const Input = (props: InputProps) => {
   const {require, title, error, errorMessage, contentStyle, style, isPhone} =

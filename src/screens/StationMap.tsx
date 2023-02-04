@@ -10,10 +10,12 @@ import {IStation, MapType} from 'interface/ISettings';
 import StationInfoModal from 'components/StationInfoModal';
 import {Button} from 'common/Button';
 import {INIT_LOCATION} from 'constant/constants';
-const ANIMATION_DURATION = 200;
+import {useNavigation} from '@react-navigation/native';
+const ANIMATION_DURATION = 500;
 
 const StationMap = () => {
   const mapView = useRef<MapView>();
+  const navigation = useNavigation<any>();
 
   const [currenctLocation, setCurrenctLocation] =
     useState<Region>(INIT_LOCATION);
@@ -59,6 +61,10 @@ const StationMap = () => {
     openMap(station?.latitude, station?.longitude, type);
   };
 
+  const onPressSearch = () => {
+    navigation.navigate('StationSearch', {onPressMarker});
+  };
+
   return (
     <SafeAreaView style={styles.safeareView}>
       <View style={styles.container}>
@@ -78,7 +84,13 @@ const StationMap = () => {
           <Button
             buttonType="green"
             onPress={navigationButton}
+            style={styles.navigateButtonStyle}
             label={'Bulunduğum Konumu Göster'}
+          />
+          <Button
+            buttonType="green"
+            onPress={onPressSearch}
+            label={'İstasyon Ara'}
           />
         </View>
       </View>
@@ -103,4 +115,5 @@ const styles = StyleSheet.create({
     bottom: 30,
   },
   actionButtons: {},
+  navigateButtonStyle: {marginBottom: 8},
 });

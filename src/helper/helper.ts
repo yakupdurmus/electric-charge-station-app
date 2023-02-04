@@ -161,3 +161,11 @@ export const openMap = async (
     return false;
   }
 };
+
+export const stationSearchWithText = (term: string): IStation[] => {
+  return stations.allStations.filter(
+    station =>
+      station.name.search(new RegExp(term, 'i')) > -1 ||
+      station.stationAddress.search(new RegExp(term, 'i')) > -1,
+  );
+};

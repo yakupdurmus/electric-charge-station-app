@@ -6,7 +6,7 @@ import {COLOR} from 'constant/constants';
 export const Loader = (props: SpinnerProps) => {
   return (
     <View style={styles.container}>
-      <Spinner size={50} color={COLOR.white} type="ArcAlt" {...props} />
+      <Spinner size={50} color={COLOR.black60} type="ArcAlt" {...props} />
     </View>
   );
 };
