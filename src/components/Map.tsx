@@ -1,5 +1,6 @@
 import React, {StyleSheet, Image, View} from 'react-native';
 import {
+  SCREEN_HEIGHT,
   getDistanceBetweenCoordinates,
   getStationsByLocation,
 } from 'helper/helper';
@@ -33,7 +34,12 @@ const Map = ({
     setMarkerList(markers);
   };
 
-  console.log('Render map');
+  const mapPadding = {
+    bottom: SCREEN_HEIGHT * 0.3,
+    top: 0,
+    right: 0,
+    left: 0,
+  };
 
   return (
     <MapView
@@ -44,6 +50,7 @@ const Map = ({
       showsBuildings={false}
       showsUserLocation
       showsTraffic={false}
+      mapPadding={mapPadding}
       onRegionChangeComplete={onRegionChangeComplete}
       style={styles.map}>
       {markerList.map((item, index) => {
