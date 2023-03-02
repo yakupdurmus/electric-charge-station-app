@@ -1,9 +1,13 @@
 import React, {StyleSheet, Image, View} from 'react-native';
-import {getStationsByLocation} from 'helper/helper';
+import {
+  getDistanceBetweenCoordinates,
+  getStationsByLocation,
+} from 'helper/helper';
 import images from 'assets/images';
 import MapView, {Marker, PROVIDER_GOOGLE, Region} from 'react-native-maps';
 import {useState} from 'react';
 import {IStation} from 'interface/ISettings';
+import {TWO_POINT_DISTANCE_KM} from 'constant/constants';
 
 const Map = ({
   mapViewRef,
@@ -15,9 +19,15 @@ const Map = ({
   onPressMarker: (station: IStation) => void;
 }): JSX.Element => {
   const [markerList, setMarkerList] = useState<IStation[]>([]);
-  const [_location, setLocation] = useState<Region>();
+  const [location, setLocation] = useState<Region>();
 
   const onRegionChangeComplete = (region: Region) => {
+    if (location) {
+      const distanceToPoint = getDistanceBetweenCoordinates(location, region);
+      if (distanceToPoint < TWO_POINT_DISTANCE_KM) {
+        return;
+      }
+    }
     setLocation(region);
     const markers = getStationsByLocation(region);
     setMarkerList(markers);

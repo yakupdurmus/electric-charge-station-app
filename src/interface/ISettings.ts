@@ -13,3 +13,8 @@ export interface IStation {
 }
 
 export type MapType = 'appleMaps' | 'googleMaps' | 'yandexMaps';
+
+export interface ICoordinate {
+  latitude: number;
+  longitude: number;
+}

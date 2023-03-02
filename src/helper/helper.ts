@@ -3,7 +3,7 @@ import {getItem} from './Storage';
 
 import {Alert, Dimensions, Platform, Linking} from 'react-native';
 import {Region} from 'react-native-maps';
-import {IStation, MapType} from 'interface/ISettings';
+import {ICoordinate, IStation, MapType} from 'interface/ISettings';
 import stations from 'assets/stations/stations';
 
 import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
@@ -12,6 +12,7 @@ import GeoLocationCommunity, {
   GeolocationError,
   GeolocationResponse,
 } from '@react-native-community/geolocation';
+import {TWO_POINT_DISTANCE_KM} from 'constant/constants';
 
 export const getLanguage = async () => {
   const language = await getItem('language');
@@ -25,7 +26,10 @@ const screenSize = Dimensions.get('screen');
 export const SCREEN_WIDTH = screenSize.width;
 export const SCREEN_HEIGHT = screenSize.height;
 
-function getDistanceBetweenCoordinates(coord1: Region, coord2: IStation) {
+export function getDistanceBetweenCoordinates(
+  coord1: ICoordinate,
+  coord2: ICoordinate,
+) {
   const earthRadius = 6371;
   const lat1 = coord1.latitude * (Math.PI / 180);
   const lat2 = coord2.latitude * (Math.PI / 180);
@@ -43,7 +47,7 @@ function getDistanceBetweenCoordinates(coord1: Region, coord2: IStation) {
 }
 
 export const getStationsByLocation = (location: Region): IStation[] => {
-  const maxDistanceKM = 2;
+  const maxDistanceKM = TWO_POINT_DISTANCE_KM;
 
   return stations.allStations.filter(station => {
     const distance = getDistanceBetweenCoordinates(location, station);
