@@ -19,6 +19,7 @@ const StationMap = () => {
 
   const [currenctLocation, setCurrenctLocation] =
     useState<Region>(INIT_LOCATION);
+  const [currenctRegion, setCurrenctRegion] = useState<Region>(INIT_LOCATION);
 
   const [stationModalVisible, setStationModalVisible] = useState(false);
   const [selectedStation, setSelectedStation] = useState<IStation>();
@@ -40,7 +41,7 @@ const StationMap = () => {
     setSelectedStation(station);
     setStationModalVisible(true);
     const location = {
-      ...currenctLocation,
+      ...currenctRegion,
       latitude: station.latitude,
       longitude: station.longitude,
     };
@@ -65,6 +66,10 @@ const StationMap = () => {
     navigation.navigate('StationSearch', {onPressMarker});
   };
 
+  const onRegionChange = (region: Region) => {
+    setCurrenctRegion(region);
+  };
+
   return (
     <SafeAreaView style={styles.safeareView}>
       <View style={styles.container}>
@@ -72,6 +77,7 @@ const StationMap = () => {
           mapViewRef={mapView}
           currenctLocation={currenctLocation}
           onPressMarker={onPressMarker}
+          onRegionChange={onRegionChange}
         />
         <StationInfoModal
           station={selectedStation}

@@ -11,46 +11,45 @@ const Map = ({
   mapViewRef,
   currenctLocation,
   onPressMarker,
+  onRegionChange,
 }: {
   mapViewRef: any;
   currenctLocation: Region;
   onPressMarker: (station: IStation) => void;
+  onRegionChange?: (region: Region) => void;
 }): JSX.Element => {
   const [markerList, setMarkerList] = useState<IStation[]>([]);
-  const [location, setLocation] = useState<Region>();
+  const [region, setRegion] = useState<Region>();
 
   const onRegionChangeComplete = (newRegion: Region) => {
+    if (onRegionChange) {
+      onRegionChange(newRegion);
+    }
+
     const diameter = getDiameter(newRegion);
     if (diameter > TWO_POINT_MAX_KM_DISTANCE) {
       return;
     }
 
-    if (!location) {
-      setLocation(newRegion);
+    if (!region) {
+      setRegion(newRegion);
       const markers = getStationsByLocation(newRegion);
       setMarkerList(markers);
       return;
     }
 
     if (
-      newRegion.latitude > location.latitude + location.latitudeDelta ||
-      newRegion.latitude < location.latitude - location.latitudeDelta ||
-      newRegion.longitude > location.longitude + location.longitudeDelta ||
-      newRegion.longitude < location.longitude - location.longitudeDelta ||
-      newRegion.latitudeDelta > location.latitudeDelta ||
-      newRegion.longitudeDelta > location.longitudeDelta
+      newRegion.latitude > region.latitude + region.latitudeDelta ||
+      newRegion.latitude < region.latitude - region.latitudeDelta ||
+      newRegion.longitude > region.longitude + region.longitudeDelta ||
+      newRegion.longitude < region.longitude - region.longitudeDelta ||
+      newRegion.latitudeDelta > region.latitudeDelta ||
+      newRegion.longitudeDelta > region.longitudeDelta
     ) {
-      setLocation(newRegion);
+      setRegion(newRegion);
       const markers = getStationsByLocation(newRegion);
       setMarkerList(markers);
     }
-  };
-
-  const mapPadding = {
-    bottom: SCREEN_HEIGHT * 0.3,
-    top: 0,
-    right: 0,
-    left: 0,
   };
 
   return (
@@ -100,3 +99,10 @@ const styles = StyleSheet.create({
     height: 50,
   },
 });
+
+const mapPadding = {
+  bottom: SCREEN_HEIGHT * 0.3,
+  top: 0,
+  right: 0,
+  left: 0,
+};
