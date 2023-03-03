@@ -12,7 +12,7 @@ import GeoLocationCommunity, {
   GeolocationError,
   GeolocationResponse,
 } from '@react-native-community/geolocation';
-import {TWO_POINT_DISTANCE_KM} from 'constant/constants';
+import {TWO_POINT_MAX_KM_DISTANCE} from 'constant/constants';
 
 export const getLanguage = async () => {
   const language = await getItem('language');
@@ -47,12 +47,26 @@ export function getDistanceBetweenCoordinates(
 }
 
 export const getStationsByLocation = (location: Region): IStation[] => {
-  const maxDistanceKM = TWO_POINT_DISTANCE_KM;
+  let diameter = getDiameter(location);
+  diameter =
+    diameter > TWO_POINT_MAX_KM_DISTANCE ? TWO_POINT_MAX_KM_DISTANCE : diameter;
 
   return stations.allStations.filter(station => {
     const distance = getDistanceBetweenCoordinates(location, station);
-    return distance < maxDistanceKM;
+    return distance < diameter;
   });
+};
+
+export const getDiameter = (region: Region) => {
+  const kmPerDegreeLat = 111.32; // 1 derece enlem farkının yaklaşık değeri (km)
+  const kmPerDegreeLon = 111.32 * Math.cos(region.latitude * (Math.PI / 180)); // 1 derece boylam farkının yaklaşık değeri (km)
+
+  const latDeltaKm = region.latitudeDelta * kmPerDegreeLat; // Bölgenin enlem delta değerinin kilometre cinsinden değeri
+  const lonDeltaKm = region.longitudeDelta * kmPerDegreeLon; // Bölgenin boylam delta değerinin kilometre cinsinden değeri
+
+  const diameter = Math.max(latDeltaKm, lonDeltaKm); // Bölgenin çapı, enlem delta ve boylam delta arasındaki daha büyük olanıdır
+
+  return diameter;
 };
 
 export const checkLocationPermission = (

@@ -17,6 +17,7 @@ const COLOR = {
   black60: 'rgba(0,0,0,0.60)',
   black80: 'rgba(0,0,0,0.80)',
   black100: 'rgba(0,0,0,1)',
+  blue100: 'rgba(78,166,243,1)',
 };
 
 const INPUTMASK = {mask: '0999 999 99 99'};
@@ -28,6 +29,6 @@ const INIT_LOCATION = {
   longitudeDelta: 0.032,
 };
 
-const TWO_POINT_DISTANCE_KM = 3;
+const TWO_POINT_MAX_KM_DISTANCE = 17;
 
-export {COLOR, INPUTMASK, INIT_LOCATION, TWO_POINT_DISTANCE_KM};
+export {COLOR, INPUTMASK, INIT_LOCATION, TWO_POINT_MAX_KM_DISTANCE};

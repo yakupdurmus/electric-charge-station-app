@@ -1,14 +1,11 @@
 import React, {StyleSheet, Image, View} from 'react-native';
-import {
-  SCREEN_HEIGHT,
-  getDistanceBetweenCoordinates,
-  getStationsByLocation,
-} from 'helper/helper';
+import {SCREEN_HEIGHT, getDiameter, getStationsByLocation} from 'helper/helper';
 import images from 'assets/images';
-import MapView, {Marker, PROVIDER_GOOGLE, Region} from 'react-native-maps';
+import {Marker, PROVIDER_GOOGLE, Region} from 'react-native-maps';
+import MapView from 'react-native-map-clustering';
 import {useState} from 'react';
 import {IStation} from 'interface/ISettings';
-import {TWO_POINT_DISTANCE_KM} from 'constant/constants';
+import {COLOR, TWO_POINT_MAX_KM_DISTANCE} from 'constant/constants';
 
 const Map = ({
   mapViewRef,
@@ -22,16 +19,31 @@ const Map = ({
   const [markerList, setMarkerList] = useState<IStation[]>([]);
   const [location, setLocation] = useState<Region>();
 
-  const onRegionChangeComplete = (region: Region) => {
-    if (location) {
-      const distanceToPoint = getDistanceBetweenCoordinates(location, region);
-      if (distanceToPoint < TWO_POINT_DISTANCE_KM) {
-        return;
-      }
+  const onRegionChangeComplete = (newRegion: Region) => {
+    const diameter = getDiameter(newRegion);
+    if (diameter > TWO_POINT_MAX_KM_DISTANCE) {
+      return;
     }
-    setLocation(region);
-    const markers = getStationsByLocation(region);
-    setMarkerList(markers);
+
+    if (!location) {
+      setLocation(newRegion);
+      const markers = getStationsByLocation(newRegion);
+      setMarkerList(markers);
+      return;
+    }
+
+    if (
+      newRegion.latitude > location.latitude + location.latitudeDelta ||
+      newRegion.latitude < location.latitude - location.latitudeDelta ||
+      newRegion.longitude > location.longitude + location.longitudeDelta ||
+      newRegion.longitude < location.longitude - location.longitudeDelta ||
+      newRegion.latitudeDelta > location.latitudeDelta ||
+      newRegion.longitudeDelta > location.longitudeDelta
+    ) {
+      setLocation(newRegion);
+      const markers = getStationsByLocation(newRegion);
+      setMarkerList(markers);
+    }
   };
 
   const mapPadding = {
@@ -43,7 +55,7 @@ const Map = ({
 
   return (
     <MapView
-      ref={(ref: MapView) => (mapViewRef.current = ref)}
+      ref={mapViewRef}
       initialRegion={currenctLocation}
       showsIndoorLevelPicker={false}
       provider={PROVIDER_GOOGLE}
@@ -51,6 +63,7 @@ const Map = ({
       showsUserLocation
       showsTraffic={false}
       mapPadding={mapPadding}
+      clusterColor={COLOR.blue100}
       onRegionChangeComplete={onRegionChangeComplete}
       style={styles.map}>
       {markerList.map((item, index) => {
