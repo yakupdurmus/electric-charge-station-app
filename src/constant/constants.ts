@@ -1,23 +1,17 @@
 const COLOR = {
   white: '#fff',
+  background: '#f5f5f5',
   lightGray: '#eee',
   lightGray2: '#ddd',
-  veryPaleOrange: '#FFE5D9',
-  paleOrange: '#FFD7BA',
-  verySoftOrange: '#FEC89A',
-  verySoftRed: '#FEC5BB',
-  lightGrayishRed1: '#FCD5CE',
-  lightGrayishRed2: '#FAE1DD',
-  lightGrayishRed3: '#F8EDEB',
-  lightGrayishOrange: '#ECE4DB',
-  lightGrayishYellow: '#E8E8E4',
-  lightGrayishCyan: '#D8E2DC',
-  green: '#3C6255',
+  disabled: '#cccccc',
   black30: 'rgba(0,0,0,0.30)',
   black60: 'rgba(0,0,0,0.60)',
   black80: 'rgba(0,0,0,0.80)',
   black100: 'rgba(0,0,0,1)',
-  blue100: 'rgba(78,166,243,1)',
+  textLight: '#ffffff',
+  text: '#333333',
+  textSecondary: '#666666',
+  textMuted: '#999999',
 
   primary: {
     light: '#63a4ff',
@@ -29,11 +23,6 @@ const COLOR = {
     main: '#73b5ff',
     dark: '#4285f4',
   },
-  background: '#f5f5f5',
-  text: '#333333',
-  textSecondary: '#666666',
-  textMuted: '#999999',
-  textLight: '#ffffff',
   success: {
     light: '#a5d6a7',
     main: '#4caf50',
@@ -49,7 +38,6 @@ const COLOR = {
     main: '#f44336',
     dark: '#d32f2f',
   },
-  disabled: '#cccccc',
 };
 
 const INPUTMASK = {mask: '0999 999 99 99'};

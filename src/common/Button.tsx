@@ -80,19 +80,19 @@ const styles = StyleSheet.create({
     backgroundColor: COLOR.lightGray2,
   },
   orange: {
-    backgroundColor: COLOR.lightGrayishOrange,
+    backgroundColor: COLOR.warning.dark,
     color: COLOR.white,
   },
   yellow: {
-    backgroundColor: COLOR.lightGrayishRed1,
+    backgroundColor: COLOR.warning.light,
     color: COLOR.white,
   },
   smokeyellow: {
-    backgroundColor: COLOR.lightGrayishYellow,
+    backgroundColor: COLOR.warning.main,
     color: COLOR.white,
   },
   green: {
-    backgroundColor: COLOR.green,
+    backgroundColor: COLOR.success.main,
     color: COLOR.white,
   },
 });

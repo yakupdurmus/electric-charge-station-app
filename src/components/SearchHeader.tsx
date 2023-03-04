@@ -20,7 +20,12 @@ const SearchHeader = ({
         style={styles.searchInput}
         activeOpacity={0.9}
         onPress={onPressSearchInput}>
-        <Input editable={false} placeholder="İstasyon Ara" value={value} />
+        <Input
+          onPressIn={onPressSearchInput}
+          editable={false}
+          placeholder="İstasyon Ara"
+          value={value}
+        />
       </TouchableOpacity>
       <TouchableOpacity style={styles.iconStyle} onPress={clearText}>
         <Icon name="close" />

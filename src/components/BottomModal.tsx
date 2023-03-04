@@ -4,6 +4,7 @@ import {StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
 import {Button} from 'common/Button';
 import {Label} from 'common/Label';
+import {COLOR} from 'constant/constants';
 
 interface IProps {
   isVisible?: boolean;
@@ -29,6 +30,9 @@ export default function BottomModal(props: IProps) {
       <View>
         {props.modalTopComponent}
         <View style={styles.contentStyle}>
+          <View style={styles.gestureTouchContainer}>
+            <View style={styles.gestureTouch} />
+          </View>
           <View style={styles.title}>
             <Label numberOfLines={1} style={styles.titleLabel}>
               {props.title}
@@ -53,8 +57,10 @@ const styles = StyleSheet.create({
     minHeight: 100,
     backgroundColor: 'white',
     paddingHorizontal: 12,
-    paddingTop: 12,
+    paddingTop: 24,
     paddingBottom: 48,
+    borderTopLeftRadius: 24,
+    borderTopRightRadius: 24,
   },
   title: {
     flexDirection: 'row',
@@ -65,5 +71,19 @@ const styles = StyleSheet.create({
     flex: 1,
     fontWeight: 'bold',
     fontSize: 14,
+  },
+
+  gestureTouch: {
+    width: 40,
+    height: 4,
+    borderRadius: 2,
+    backgroundColor: COLOR.lightGray2,
+  },
+
+  gestureTouchContainer: {
+    top: 8,
+    position: 'absolute',
+    width: '100%',
+    alignItems: 'center',
   },
 });
