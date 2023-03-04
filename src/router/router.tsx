@@ -14,7 +14,11 @@ export default function Router() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName={initialRouteName}>
         <Stack.Screen name={'MapPermission'} component={Screen.MapPermission} />
-        <Stack.Screen name={'StationMap'} component={Screen.StationMap} />
+        <Stack.Screen
+          options={{headerShown: false}}
+          name={'StationMap'}
+          component={Screen.StationMap}
+        />
         <Stack.Screen name={'Home'} component={Screen.Home} />
         <Stack.Screen name={'Login'} component={Screen.Login} />
         <Stack.Screen

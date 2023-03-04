@@ -1,10 +1,9 @@
 import React from 'react';
-import {TextInput, View} from 'react-native';
+import {TextInput, View, TextInputProps, StyleSheet} from 'react-native';
 import {Label} from 'common/Label';
-import {TextInputMask, TextInputMaskProps} from 'react-native-masked-text';
-import {COLOR, INPUTMASK} from 'constant/constants';
+import {COLOR} from 'constant/constants';
 
-interface InputProps extends TextInputMaskProps {
+interface InputProps extends TextInputProps {
   require?: any;
   title?: any;
   error?: any;
@@ -16,8 +15,7 @@ interface InputProps extends TextInputMaskProps {
   placeholder?: string;
 }
 export const Input = (props: InputProps) => {
-  const {require, title, error, errorMessage, contentStyle, style, isPhone} =
-    props;
+  const {require, title, error, errorMessage, contentStyle, style} = props;
   return (
     <View style={[styles.content, contentStyle]}>
       {title && (
@@ -26,27 +24,13 @@ export const Input = (props: InputProps) => {
           {require && <Label style={styles.requireStar}>*</Label>}
         </Label>
       )}
-      {isPhone ? (
-        <TextInputMask
-          {...props}
-          type={'custom'}
-          options={INPUTMASK}
-          keyboardType="number-pad"
-          style={styles.phoneInput}
-          placeholder="Telefon Numarası"
-          placeholderTextColor={COLOR.lightGray}
-        />
-      ) : (
-        <TextInput
-          {...props}
-          placeholderTextColor={COLOR.lightGray}
-          style={[
-            styles.textInput,
-            error ? styles.errorBorderStyle : {},
-            style,
-          ]}
-        />
-      )}
+
+      <TextInput
+        {...props}
+        placeholderTextColor={COLOR.textMuted}
+        style={[styles.textInput, error ? styles.errorBorderStyle : {}, style]}
+      />
+
       {errorMessage ? (
         error ? (
           <Label style={styles.errorTextStyle}>{errorMessage}</Label>
@@ -58,36 +42,27 @@ export const Input = (props: InputProps) => {
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   content: {},
   errorBorderStyle: {
     borderBottomWidth: 1,
-    borderColor: 'red',
+    borderColor: COLOR.error.main,
   },
   errorTextStyle: {
     fontSize: 12,
     opacity: 0.6,
-    color: 'red',
+    color: COLOR.error.main,
   },
   textInput: {
     height: 40,
     paddingLeft: 10,
     borderBottomWidth: 1,
     borderColor: COLOR.lightGray,
-    borderRadius: 5,
+    borderRadius: 4,
+    backgroundColor: COLOR.white,
   },
   titleStlye: {},
   requireStar: {
-    color: 'red',
+    color: COLOR.error.main,
   },
-  phoneInput: {
-    borderBottomWidth: 1,
-    borderColor: COLOR.lightGray,
-    padding: 10,
-    fontSize: 14,
-
-    height: 40,
-    paddingLeft: 10,
-    borderRadius: 5,
-  },
-};
+});

@@ -1,7 +1,7 @@
 import React, {StyleSheet, Image, View} from 'react-native';
 import {SCREEN_HEIGHT, getDiameter, getStationsByLocation} from 'helper/helper';
 import images from 'assets/images';
-import {Marker, PROVIDER_GOOGLE, Region} from 'react-native-maps';
+import {Marker, Region} from 'react-native-maps';
 import MapView from 'react-native-map-clustering';
 import {useState} from 'react';
 import {IStation} from 'interface/ISettings';
@@ -57,9 +57,9 @@ const Map = ({
       ref={mapViewRef}
       initialRegion={currenctLocation}
       showsIndoorLevelPicker={false}
-      provider={PROVIDER_GOOGLE}
       showsBuildings={false}
       showsUserLocation
+      showsMyLocationButton={false}
       showsTraffic={false}
       mapPadding={mapPadding}
       clusterColor={COLOR.blue100}

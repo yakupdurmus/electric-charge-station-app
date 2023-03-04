@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
-import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import MapView, {Region} from 'react-native-maps';
 
 import {getCurrentPosition, openMap} from 'helper/helper';
@@ -8,9 +8,10 @@ import {GeolocationResponse} from '@react-native-community/geolocation';
 import Map from 'components/Map';
 import {IStation, MapType} from 'interface/ISettings';
 import StationInfoModal from 'components/StationInfoModal';
-import {Button} from 'common/Button';
-import {INIT_LOCATION} from 'constant/constants';
+import {COLOR, INIT_LOCATION} from 'constant/constants';
 import {useNavigation} from '@react-navigation/native';
+import SearchHeader from 'components/SearchHeader';
+import {Icon} from 'common/Icon';
 const ANIMATION_DURATION = 500;
 
 const StationMap = () => {
@@ -51,7 +52,7 @@ const StationMap = () => {
   const modalOnClose = () => {
     setStationModalVisible(false);
   };
-  const navigationButton = () => {
+  const onPressNavigateToMyLocation = () => {
     mapView.current?.animateToRegion(currenctLocation, ANIMATION_DURATION);
   };
   const onPressNavigateLocation = () => {
@@ -62,12 +63,17 @@ const StationMap = () => {
     openMap(station?.latitude, station?.longitude, type);
   };
 
-  const onPressSearch = () => {
+  const onRegionChange = (region: Region) => {
+    setCurrenctRegion(region);
+  };
+
+  const onPressSearchInput = () => {
     navigation.navigate('StationSearch', {onPressMarker});
   };
 
-  const onRegionChange = (region: Region) => {
-    setCurrenctRegion(region);
+  const clearSelectedStation = () => {
+    setSelectedStation(undefined);
+    setStationModalVisible(false);
   };
 
   return (
@@ -79,6 +85,11 @@ const StationMap = () => {
           onPressMarker={onPressMarker}
           onRegionChange={onRegionChange}
         />
+        <SearchHeader
+          onPressSearchInput={onPressSearchInput}
+          value={selectedStation?.name}
+          clearText={clearSelectedStation}
+        />
         <StationInfoModal
           station={selectedStation}
           isVisible={stationModalVisible}
@@ -87,17 +98,12 @@ const StationMap = () => {
           onPressOpenMap={onPressOpenMap}
         />
         <View style={styles.bottomContainer}>
-          <Button
-            buttonType="green"
-            onPress={navigationButton}
-            style={styles.navigateButtonStyle}
-            label={'Bulunduğum Konumu Göster'}
-          />
-          <Button
-            buttonType="green"
-            onPress={onPressSearch}
-            label={'İstasyon Ara'}
-          />
+          <TouchableOpacity
+            activeOpacity={0.75}
+            onPress={onPressNavigateToMyLocation}
+            style={styles.gpsButton}>
+            <Icon name="my-location" style={styles.gpsIcon} />
+          </TouchableOpacity>
         </View>
       </View>
     </SafeAreaView>
@@ -118,8 +124,17 @@ const styles = StyleSheet.create({
   bottomContainer: {
     width: '80%',
     position: 'absolute',
-    bottom: 30,
+    bottom: 48,
   },
   actionButtons: {},
   navigateButtonStyle: {marginBottom: 8},
+  gpsButton: {
+    backgroundColor: COLOR.white,
+    alignSelf: 'flex-end',
+    padding: 16,
+    borderRadius: 30,
+  },
+  gpsIcon: {
+    fontSize: 24,
+  },
 });

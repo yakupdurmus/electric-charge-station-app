@@ -73,7 +73,6 @@ export default function StationSearch() {
         <Input
           onChangeText={onChangeText}
           title={'İstasyonları Filtrele'}
-          type={'custom'}
           placeholder="Palladium AVM, Ataşehir"
           value={searchText}
           autoFocus
@@ -86,6 +85,7 @@ export default function StationSearch() {
           </View>
         ) : (
           <FlatList
+            keyboardShouldPersistTaps="always"
             keyExtractor={(item, index) => item.name + index}
             data={searchStation}
             renderItem={renderItem}
