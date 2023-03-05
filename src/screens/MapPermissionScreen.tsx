@@ -10,7 +10,7 @@ import {PERMISSIONS, Permission, request} from 'react-native-permissions';
 import {useNavigation} from '@react-navigation/native';
 import {setItem} from 'helper/Storage';
 
-export default function MapPermission() {
+export default function MapPermissionScreen() {
   const navigation = useNavigation<any>();
 
   const onPress = () => {

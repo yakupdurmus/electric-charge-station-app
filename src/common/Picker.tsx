@@ -85,7 +85,7 @@ const styles = {
       fontSize: 14,
       height: 30,
       marginTop: -15,
-      color: COLOR.lightGrayishCyan,
+      color: COLOR.success,
       borderBottomWidth: 1,
       borderColor: COLOR.lightGray,
     },

@@ -2,7 +2,7 @@ import {Text, TouchableOpacity, SafeAreaView, Platform} from 'react-native';
 import React, {Component} from 'react';
 import * as Sentry from '@sentry/react-native';
 
-export default class Login extends Component {
+export default class LoginScreen extends Component {
   render() {
     return (
       <SafeAreaView>

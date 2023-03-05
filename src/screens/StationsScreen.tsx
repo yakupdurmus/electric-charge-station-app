@@ -14,7 +14,7 @@ import SearchHeader from 'components/SearchHeader';
 import {Icon} from 'common/Icon';
 const ANIMATION_DURATION = 500;
 
-const StationMap = () => {
+const StationsScreen = () => {
   const mapView = useRef<MapView>();
   const navigation = useNavigation<any>();
 
@@ -68,7 +68,7 @@ const StationMap = () => {
   };
 
   const onPressSearchInput = () => {
-    navigation.navigate('StationSearch', {onPressMarker});
+    navigation.navigate('StationSearchScreen', {onPressMarker});
   };
 
   const clearSelectedStation = () => {
@@ -109,7 +109,7 @@ const StationMap = () => {
     </SafeAreaView>
   );
 };
-export default StationMap;
+export default StationsScreen;
 
 const styles = StyleSheet.create({
   safeareView: {

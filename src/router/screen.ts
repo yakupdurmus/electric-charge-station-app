@@ -1,6 +1,12 @@
-import Home from 'screens/Home';
-import Login from 'screens/Login';
-import StationMap from 'screens/StationMap';
-import MapPermission from 'screens/MapPermission';
-import StationSearch from 'screens/StationSearch';
-export {Home, Login, StationMap, MapPermission, StationSearch};
+import HomeScreen from 'screens/HomeScreen';
+import LoginScreen from 'screens/LoginScreen';
+import StationsScreen from 'screens/StationsScreen';
+import MapPermissionScreen from 'screens/MapPermissionScreen';
+import StationSearchScreen from 'screens/StationSearchScreen';
+export {
+  HomeScreen,
+  LoginScreen,
+  StationsScreen,
+  MapPermissionScreen,
+  StationSearchScreen,
+};

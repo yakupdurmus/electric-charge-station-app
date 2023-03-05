@@ -11,7 +11,7 @@ import {useNavigation, useRoute} from '@react-navigation/native';
 
 let timer: any;
 
-export default function StationSearch() {
+export default function StationSearchScreen() {
   const navigation = useNavigation();
   const route = useRoute<any>();
   const [searchStation, setSearchStation] = useState(stations.allStations);
