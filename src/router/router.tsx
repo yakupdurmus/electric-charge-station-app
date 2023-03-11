@@ -4,7 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as Screen from './screen';
 import {useSelector} from 'react-redux';
 import {IRootState} from 'interface/IBase';
-import TabScreen from './tabScreen';
+import TabScreen, {screenOptions} from './tabScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,7 +30,7 @@ export default function Router() {
         />
         <Stack.Screen
           name={Screen.StationSearchScreen.name}
-          options={{presentation: 'modal'}}
+          options={screenOptions}
           component={Screen.StationSearchScreen}
         />
         <Stack.Screen

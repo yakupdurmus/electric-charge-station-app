@@ -1,3 +1,5 @@
+import images from 'assets/images';
+
 const COLOR = {
   white: '#fff',
   background: '#f5f5f5',
@@ -49,6 +51,21 @@ const INIT_LOCATION = {
   longitudeDelta: 0.032,
 };
 
+const stationIcons = {
+  esarj: images.esarjIcon,
+  gcharge: images.gChargeIcon,
+  powersarj: images.powerIcon,
+  sharz: images.sharzIcon,
+  voltrun: images.voltrunIcon,
+  zes: images.zesIcon,
+};
+
 const TWO_POINT_MAX_KM_DISTANCE = 17;
 
-export {COLOR, INPUTMASK, INIT_LOCATION, TWO_POINT_MAX_KM_DISTANCE};
+export {
+  COLOR,
+  INPUTMASK,
+  INIT_LOCATION,
+  TWO_POINT_MAX_KM_DISTANCE,
+  stationIcons,
+};

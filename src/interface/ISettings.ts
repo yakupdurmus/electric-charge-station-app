@@ -9,7 +9,7 @@ export interface IStation {
   latitude: number;
   longitude: number;
   stationAddress: string;
-  stationType: 'zes' | 'volturun' | 'sharz' | 'powersarj' | 'gcharge' | 'esarj';
+  stationType: StationType;
 }
 
 export type MapType = 'appleMaps' | 'googleMaps' | 'yandexMaps';
@@ -18,3 +18,11 @@ export interface ICoordinate {
   latitude: number;
   longitude: number;
 }
+
+export type StationType =
+  | 'zes'
+  | 'voltrun'
+  | 'sharz'
+  | 'powersarj'
+  | 'gcharge'
+  | 'esarj';

@@ -3,6 +3,7 @@ import React from 'react';
 import {Input} from 'common/Input';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Icon} from 'common/Icon';
+import {COLOR} from 'constant/constants';
 
 const SearchHeader = ({
   onPressSearchInput,
@@ -20,6 +21,7 @@ const SearchHeader = ({
         style={styles.searchInput}
         activeOpacity={0.9}
         onPress={onPressSearchInput}>
+        {value ? null : <Icon name="search" style={styles.searchIcon} />}
         <Input
           onPressIn={onPressSearchInput}
           editable={false}
@@ -43,8 +45,16 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginTop: 12,
   },
+  searchIcon: {
+    marginRight: 4,
+  },
   searchInput: {
     flex: 1,
+    paddingLeft: 12,
+    backgroundColor: COLOR.white,
+    borderRadius: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   iconStyle: {
     justifyContent: 'center',

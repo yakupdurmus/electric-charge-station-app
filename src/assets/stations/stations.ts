@@ -4,7 +4,7 @@ const esarj: IStation[] = require('./esarj.json');
 const gcharge: IStation[] = require('./gcharge.json');
 const powersarj: IStation[] = require('./powersarj.json');
 // const sharz: IStation[] = require('./sharz.json');
-// const volturun: IStation[] = require('./volturun.json');
+// const voltrun: IStation[] = require('./voltrun.json');
 // const zes: IStation[] = require('./zes');
 
 let allStations: IStation[] = [];
@@ -14,7 +14,7 @@ allStations = allStations.concat(
   gcharge,
   powersarj,
   // sharz,
-  // volturun,
+  // voltrun,
   // zes,
 );
 
@@ -24,6 +24,6 @@ export default {
   gcharge,
   powersarj,
   // sharz,
-  // volturun,
+  // voltrun,
   // zes,
 };

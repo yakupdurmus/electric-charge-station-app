@@ -8,7 +8,7 @@ import {COLOR} from 'constant/constants';
 
 const Tab = createBottomTabNavigator();
 
-const screenOptions = ({route}: {route: RouteProp<any>}) =>
+export const screenOptions = ({route}: {route: RouteProp<any>}): any =>
   ({
     [Screen.HomeScreen.name]: {
       tabBarIcon: ({focused}: {focused: boolean}): JSX.Element => (
@@ -30,6 +30,10 @@ const screenOptions = ({route}: {route: RouteProp<any>}) =>
       ),
       headerShown: false,
       title: 'Şarj İstasyonları',
+    },
+    [Screen.StationSearchScreen.name]: {
+      presentation: 'modal',
+      title: 'Şarj İstayonu Ara',
     },
   }[route.name]);
 
