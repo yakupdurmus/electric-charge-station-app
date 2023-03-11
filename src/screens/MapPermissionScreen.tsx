@@ -30,7 +30,7 @@ export default function MapPermissionScreen() {
 
       navigation.reset({
         index: 0,
-        routes: [{name: 'StationMap'}],
+        routes: [{name: 'TabScreen'}],
       });
     });
   };

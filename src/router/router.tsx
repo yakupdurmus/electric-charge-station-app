@@ -4,49 +4,39 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import * as Screen from './screen';
 import {useSelector} from 'react-redux';
 import {IRootState} from 'interface/IBase';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import TabScreen from './tabScreen';
 
 const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
 
 export default function Router() {
   const onBoarding = useSelector((state: IRootState) => state.app.onBoarding);
-  const initialRouteName = onBoarding ? 'TabScreen' : 'MapPermission';
+  const initialRouteName = onBoarding
+    ? TabScreen.name
+    : Screen.MapPermissionScreen.name;
 
-  const screenOptions = {headerShown: false};
-
-  // eslint-disable-next-line react/no-unstable-nested-components
-  const TabScreen = (): JSX.Element => {
-    return (
-      <Tab.Navigator initialRouteName="Home">
-        <Tab.Screen name={'HomeScreen'} component={Screen.HomeScreen} />
-        <Tab.Screen
-          name={'StationsScreen'}
-          options={screenOptions}
-          component={Screen.StationsScreen}
-        />
-      </Tab.Navigator>
-    );
-  };
+  const hideHeader = {headerShown: false};
 
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={initialRouteName}>
         <Stack.Screen
-          name={'MapPermission'}
+          name={Screen.MapPermissionScreen.name}
           component={Screen.MapPermissionScreen}
         />
         <Stack.Screen
-          name="TabScreen"
-          options={screenOptions}
+          name={TabScreen.name}
+          options={hideHeader}
           component={TabScreen}
         />
         <Stack.Screen
-          name={'StationSearchScreen'}
+          name={Screen.StationSearchScreen.name}
           options={{presentation: 'modal'}}
           component={Screen.StationSearchScreen}
         />
-        <Stack.Screen name={'LoginScreen'} component={Screen.LoginScreen} />
+        <Stack.Screen
+          name={Screen.LoginScreen.name}
+          component={Screen.LoginScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
