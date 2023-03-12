@@ -1,4 +1,4 @@
-import {ScrollView, StyleSheet, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import ImageSwiper from 'components/ImageSwiper';
 import {COLOR} from 'constant/constants';
