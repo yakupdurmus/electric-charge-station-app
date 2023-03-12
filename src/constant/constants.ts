@@ -17,13 +17,13 @@ const COLOR = {
 
   primary: {
     light: '#63a4ff',
-    main: '#0077c2',
+    main: '#4ea6f3',
     dark: '#004d80',
   },
   secondary: {
-    light: '#b2d8ff',
-    main: '#73b5ff',
-    dark: '#4285f4',
+    light: '#c2e2fe',
+    main: '#62b4fc',
+    dark: '#0370d0',
   },
   success: {
     light: '#a5d6a7',
@@ -45,10 +45,10 @@ const COLOR = {
 const INPUTMASK = {mask: '0999 999 99 99'};
 
 const INIT_LOCATION = {
-  latitude: 41.2858606,
-  longitude: 29.1328714,
-  latitudeDelta: 0.035,
-  longitudeDelta: 0.032,
+  latitude: 41.0258606,
+  longitude: 29.0628714,
+  latitudeDelta: 0.135,
+  longitudeDelta: 0.132,
 };
 
 const stationIcons = {

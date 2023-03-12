@@ -19,7 +19,7 @@ interface ButtonProps extends TouchableOpacityProps {
   border?: any;
   left?: any;
   right?: any;
-  buttonType?: 'light' | 'yellow' | 'smokeyellow' | 'orange' | 'green';
+  buttonType?: 'light' | 'yellow' | 'smokeyellow' | 'orange' | 'green' | 'blue';
 }
 
 export const Button = (props: ButtonProps) => {
@@ -93,6 +93,10 @@ const styles = StyleSheet.create({
   },
   green: {
     backgroundColor: COLOR.success.main,
+    color: COLOR.white,
+  },
+  blue: {
+    backgroundColor: COLOR.secondary.dark,
     color: COLOR.white,
   },
 });

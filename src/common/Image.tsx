@@ -1,17 +1,17 @@
+import {SCREEN_WIDTH} from 'helper/helper';
 import React, {useCallback, useState} from 'react';
-import {Dimensions} from 'react-native';
+import {ImageStyle} from 'react-native';
 import FastImage, {FastImageProps, OnLoadEvent} from 'react-native-fast-image';
 
 interface IProps {
   width?: number;
   height?: number;
+  style?: ImageStyle;
 }
-
-const screenWidth = Dimensions.get('window').width;
 
 export default function Image(props: FastImageProps & IProps): JSX.Element {
   const [height, setHeight] = useState(0);
-  const width = props.width || screenWidth;
+  const width = props.width || SCREEN_WIDTH;
 
   const onLoad = useCallback(
     (e: OnLoadEvent) => {
@@ -24,8 +24,8 @@ export default function Image(props: FastImageProps & IProps): JSX.Element {
   return (
     <FastImage
       onLoad={onLoad}
-      style={{width: width, height: height}}
       {...props}
+      style={[{width: width, height: height}, props.style]}
     />
   );
 }

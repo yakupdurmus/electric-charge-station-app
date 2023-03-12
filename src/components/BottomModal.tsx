@@ -64,12 +64,13 @@ const styles = StyleSheet.create({
   title: {
     flexDirection: 'row',
     alignContent: 'space-around',
+    justifyContent: 'center',
   },
   titleLabel: {
     marginTop: 8,
     flex: 1,
     fontWeight: 'bold',
-    fontSize: 14,
+    fontSize: 16,
   },
 
   gestureTouch: {

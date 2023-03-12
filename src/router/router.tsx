@@ -22,6 +22,7 @@ export default function Router() {
         <Stack.Screen
           name={Screen.MapPermissionScreen.name}
           component={Screen.MapPermissionScreen}
+          options={screenOptions}
         />
         <Stack.Screen
           name={TabScreen.name}

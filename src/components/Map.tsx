@@ -3,7 +3,7 @@ import {SCREEN_HEIGHT, getDiameter, getStationsByLocation} from 'helper/helper';
 import images from 'assets/images';
 import {Marker, Region} from 'react-native-maps';
 import MapView from 'react-native-map-clustering';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import {IStation} from 'interface/ISettings';
 import {COLOR, TWO_POINT_MAX_KM_DISTANCE} from 'constant/constants';
 
@@ -20,6 +20,11 @@ const Map = ({
 }): JSX.Element => {
   const [markerList, setMarkerList] = useState<IStation[]>([]);
   const [region, setRegion] = useState<Region>();
+
+  useEffect(() => {
+    onRegionChangeComplete(currenctLocation);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const onRegionChangeComplete = (newRegion: Region) => {
     if (onRegionChange) {
@@ -62,7 +67,7 @@ const Map = ({
       showsMyLocationButton={false}
       showsTraffic={false}
       mapPadding={mapPadding}
-      clusterColor={COLOR.blue100}
+      clusterColor={COLOR.secondary.main}
       onRegionChangeComplete={onRegionChangeComplete}
       style={styles.map}>
       {markerList.map((item, index) => {

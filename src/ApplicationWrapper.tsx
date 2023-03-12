@@ -46,8 +46,8 @@ const useWrapperHook = () => {
   }, []);
 
   const onBoarding = async () => {
-    const locationPermission = await getItem('locationPermission');
-    store.dispatch(setOnBoarding(locationPermission === 'true'));
+    const isComplateOnBoarding = await getItem('onBoarding');
+    store.dispatch(setOnBoarding(isComplateOnBoarding === 'true'));
   };
 
   const getApplicationSettings = useCallback(async () => {

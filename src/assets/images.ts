@@ -7,6 +7,7 @@ const gChargeIcon = require('./gcharge.jpeg');
 const powerIcon = require('./power.jpg');
 const sharzIcon = require('./sharz.png');
 const voltrunIcon = require('./voltrun.png');
+const locationPermission = require('./location-permission.jpg');
 
 export default {
   marker,
@@ -18,4 +19,5 @@ export default {
   powerIcon,
   sharzIcon,
   voltrunIcon,
+  locationPermission,
 };

@@ -35,11 +35,14 @@ export const screenOptions = ({route}: {route: RouteProp<any>}): any =>
       presentation: 'modal',
       title: 'Şarj İstayonu Ara',
     },
+    [Screen.MapPermissionScreen.name]: {
+      headerShown: false,
+    },
   }[route.name]);
 
 const TabScreen = (): JSX.Element => {
   return (
-    <Tab.Navigator initialRouteName={Screen.HomeScreen.name}>
+    <Tab.Navigator initialRouteName={Screen.StationsScreen.name}>
       <Tab.Screen
         name={Screen.HomeScreen.name}
         component={Screen.HomeScreen}
