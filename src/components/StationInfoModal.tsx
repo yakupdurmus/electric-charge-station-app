@@ -4,6 +4,8 @@ import {IStation, MapType} from 'interface/ISettings';
 import {Platform, StyleSheet, View} from 'react-native';
 import {Button} from 'common/Button';
 import {Label} from 'common/Label';
+import RenderHtml from 'react-native-render-html';
+import {SCREEN_WIDTH} from 'helper/helper';
 
 const StationInfoModal = ({
   isVisible,
@@ -28,7 +30,14 @@ const StationInfoModal = ({
           <Label style={styles.labelStyle}>
             {station?.stationType.toUpperCase()}
           </Label>
-          <Label style={styles.labelStyle}>{station?.stationAddress}</Label>
+          {station?.stationAddress ? (
+            <View style={styles.htmlContainer}>
+              <RenderHtml
+                contentWidth={SCREEN_WIDTH}
+                source={{html: station.stationAddress}}
+              />
+            </View>
+          ) : null}
           <Button
             buttonType="light"
             onPress={() => onPressOpenMap('googleMaps', station)}
@@ -59,6 +68,9 @@ export default StationInfoModal;
 const styles = StyleSheet.create({
   content: {
     marginVertical: 24,
+  },
+  htmlContainer: {
+    marginBottom: 16,
   },
   buttonStlye: {
     marginBottom: 8,

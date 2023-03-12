@@ -187,3 +187,10 @@ export const stationSearchWithText = (term: string): IStation[] => {
       station.stationAddress.search(new RegExp(term, 'i')) > -1,
   );
 };
+
+export const removeTagsFromString = (htmlString: string) => {
+  if (!htmlString) return '';
+  const regex = /(<([^>]+)>)/gi;
+
+  return htmlString.replace(regex, '');
+};

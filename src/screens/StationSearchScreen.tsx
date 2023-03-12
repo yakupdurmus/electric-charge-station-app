@@ -5,7 +5,7 @@ import {Input} from 'common/Input';
 import stations from 'assets/stations/stations';
 import {IStation} from 'interface/ISettings';
 import {COLOR, stationIcons} from 'constant/constants';
-import {stationSearchWithText} from 'helper/helper';
+import {removeTagsFromString, stationSearchWithText} from 'helper/helper';
 import {Loader} from 'common/Loader';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Image from 'common/Image';
@@ -64,7 +64,7 @@ export default function StationSearchScreen() {
               {item.name}
             </Label>
             <Label style={styles.subItemName} numberOfLines={1}>
-              {item.stationAddress}
+              {removeTagsFromString(item.stationAddress)}
             </Label>
           </View>
         </View>

@@ -3,9 +3,9 @@ import {IStation} from 'interface/ISettings';
 const esarj: IStation[] = require('./esarj.json');
 const gcharge: IStation[] = require('./gcharge.json');
 const powersarj: IStation[] = require('./powersarj.json');
-// const sharz: IStation[] = require('./sharz.json');
-// const voltrun: IStation[] = require('./voltrun.json');
-// const zes: IStation[] = require('./zes');
+const sharz: IStation[] = require('./sharz.json');
+const voltrun: IStation[] = require('./voltrun.json');
+const zes: IStation[] = require('./zes');
 
 let allStations: IStation[] = [];
 
@@ -13,9 +13,9 @@ allStations = allStations.concat(
   esarj,
   gcharge,
   powersarj,
-  // sharz,
-  // voltrun,
-  // zes,
+  sharz,
+  voltrun,
+  zes,
 );
 
 export default {
@@ -23,7 +23,7 @@ export default {
   esarj,
   gcharge,
   powersarj,
-  // sharz,
-  // voltrun,
-  // zes,
+  sharz,
+  voltrun,
+  zes,
 };
