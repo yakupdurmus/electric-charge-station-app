@@ -47,8 +47,8 @@ const INPUTMASK = {mask: '0999 999 99 99'};
 const INIT_LOCATION = {
   latitude: 41.0258606,
   longitude: 29.0628714,
-  latitudeDelta: 0.135,
-  longitudeDelta: 0.132,
+  latitudeDelta: 0.035,
+  longitudeDelta: 0.032,
 };
 
 const stationIcons = {

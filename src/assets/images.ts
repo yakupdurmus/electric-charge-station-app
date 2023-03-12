@@ -8,6 +8,9 @@ const powerIcon = require('./power.jpg');
 const sharzIcon = require('./sharz.png');
 const voltrunIcon = require('./voltrun.png');
 const locationPermission = require('./location-permission.jpg');
+const banner1 = require('./banner1.jpg');
+const banner2 = require('./banner2.jpg');
+const banner3 = require('./banner3.jpg');
 
 export default {
   marker,
@@ -20,4 +23,7 @@ export default {
   sharzIcon,
   voltrunIcon,
   locationPermission,
+  banner1,
+  banner2,
+  banner3,
 };

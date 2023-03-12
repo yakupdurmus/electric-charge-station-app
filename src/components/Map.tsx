@@ -3,7 +3,7 @@ import {SCREEN_HEIGHT, getDiameter, getStationsByLocation} from 'helper/helper';
 import images from 'assets/images';
 import {Marker, Region} from 'react-native-maps';
 import MapView from 'react-native-map-clustering';
-import {useEffect, useState} from 'react';
+import {useCallback, useEffect, useState} from 'react';
 import {IStation} from 'interface/ISettings';
 import {COLOR, TWO_POINT_MAX_KM_DISTANCE} from 'constant/constants';
 
@@ -21,41 +21,44 @@ const Map = ({
   const [markerList, setMarkerList] = useState<IStation[]>([]);
   const [region, setRegion] = useState<Region>();
 
+  const onRegionChangeComplete = useCallback(
+    (newRegion: Region) => {
+      if (onRegionChange) {
+        onRegionChange(newRegion);
+      }
+
+      const diameter = getDiameter(newRegion);
+      if (diameter > TWO_POINT_MAX_KM_DISTANCE) {
+        return;
+      }
+
+      if (!region) {
+        setRegion(newRegion);
+        const markers = getStationsByLocation(newRegion);
+        setMarkerList(markers);
+        return;
+      }
+
+      if (
+        newRegion.latitude > region.latitude + region.latitudeDelta ||
+        newRegion.latitude < region.latitude - region.latitudeDelta ||
+        newRegion.longitude > region.longitude + region.longitudeDelta ||
+        newRegion.longitude < region.longitude - region.longitudeDelta ||
+        newRegion.latitudeDelta > region.latitudeDelta ||
+        newRegion.longitudeDelta > region.longitudeDelta
+      ) {
+        setRegion(newRegion);
+        const markers = getStationsByLocation(newRegion);
+        setMarkerList(markers);
+      }
+    },
+    [onRegionChange, region],
+  );
+
   useEffect(() => {
     onRegionChangeComplete(currenctLocation);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const onRegionChangeComplete = (newRegion: Region) => {
-    if (onRegionChange) {
-      onRegionChange(newRegion);
-    }
-
-    const diameter = getDiameter(newRegion);
-    if (diameter > TWO_POINT_MAX_KM_DISTANCE) {
-      return;
-    }
-
-    if (!region) {
-      setRegion(newRegion);
-      const markers = getStationsByLocation(newRegion);
-      setMarkerList(markers);
-      return;
-    }
-
-    if (
-      newRegion.latitude > region.latitude + region.latitudeDelta ||
-      newRegion.latitude < region.latitude - region.latitudeDelta ||
-      newRegion.longitude > region.longitude + region.longitudeDelta ||
-      newRegion.longitude < region.longitude - region.longitudeDelta ||
-      newRegion.latitudeDelta > region.latitudeDelta ||
-      newRegion.longitudeDelta > region.longitudeDelta
-    ) {
-      setRegion(newRegion);
-      const markers = getStationsByLocation(newRegion);
-      setMarkerList(markers);
-    }
-  };
 
   return (
     <MapView
@@ -106,7 +109,7 @@ const styles = StyleSheet.create({
 });
 
 const mapPadding = {
-  bottom: SCREEN_HEIGHT * 0.3,
+  bottom: SCREEN_HEIGHT * 0.2,
   top: 0,
   right: 0,
   left: 0,
