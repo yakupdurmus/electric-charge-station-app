@@ -38,6 +38,16 @@ export const screenOptions = ({route}: {route: RouteProp<any>}): any =>
     [Screen.MapPermissionScreen.name]: {
       headerShown: false,
     },
+    [Screen.FeedbackForm.name]: {
+      tabBarIcon: ({focused}: {focused: boolean}): JSX.Element => (
+        <Icon
+          style={{color: focused ? COLOR.primary.main : COLOR.text}}
+          name={'commenting-o'}
+          type="FontAwesome"
+        />
+      ),
+      title: 'Geri Bildirim',
+    },
   }[route.name]);
 
 const TabScreen = (): JSX.Element => {
@@ -52,6 +62,11 @@ const TabScreen = (): JSX.Element => {
         name={Screen.StationsScreen.name}
         options={screenOptions}
         component={Screen.StationsScreen}
+      />
+      <Tab.Screen
+        name={Screen.FeedbackForm.name}
+        options={screenOptions}
+        component={Screen.FeedbackForm}
       />
     </Tab.Navigator>
   );
