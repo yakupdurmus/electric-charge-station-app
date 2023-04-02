@@ -18,7 +18,7 @@ export const screenOptions = ({route}: {route: RouteProp<any>}): any =>
           type="AntDesign"
         />
       ),
-      title: 'Anasayfa',
+      title: 'Fiyat Listesi',
     },
     [Screen.StationsScreen.name]: {
       tabBarIcon: ({focused}: {focused: boolean}): JSX.Element => (

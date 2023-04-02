@@ -1,13 +1,13 @@
 import {StyleSheet, View} from 'react-native';
 import React from 'react';
-import ImageSwiper from 'components/ImageSwiper';
+// import ImageSwiper from 'components/ImageSwiper';
 import {COLOR} from 'constant/constants';
 import {WebView} from 'react-native-webview';
 
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <ImageSwiper />
+      {/* <ImageSwiper /> */}
       <WebView
         source={{
           uri: 'https://yakupdurmus.com/project/electric-station/',

@@ -20,7 +20,7 @@ const StationsScreen = () => {
 
   const [currenctLocation, setCurrenctLocation] =
     useState<Region>(INIT_LOCATION);
-  const [currenctRegion, setCurrenctRegion] = useState<Region>(INIT_LOCATION);
+  const [_currenctRegion, setCurrenctRegion] = useState<Region>(INIT_LOCATION);
 
   const [stationModalVisible, setStationModalVisible] = useState(false);
   const [selectedStation, setSelectedStation] = useState<IStation>();
@@ -42,7 +42,8 @@ const StationsScreen = () => {
     setSelectedStation(station);
     setStationModalVisible(true);
     const location = {
-      ...currenctRegion,
+      latitudeDelta: 0,
+      longitudeDelta: 0,
       latitude: station.latitude,
       longitude: station.longitude,
     };

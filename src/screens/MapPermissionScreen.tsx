@@ -49,7 +49,11 @@ export default function MapPermissionScreen() {
   return (
     <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
-        <Image source={images.locationPermission} style={styles.imageStyle} />
+        <Image
+          source={images.locationPermission}
+          resizeMode="contain"
+          style={styles.imageStyle}
+        />
         <Label style={styles.title}>Konum İzni</Label>
         <Label style={styles.textStyle}>
           {`Size daha iyi hizmet verebilmemiz için \nkonum izni gerekli.`}
@@ -94,6 +98,7 @@ const styles = StyleSheet.create({
   },
   imageStyle: {
     marginTop: 120,
+    width: '100%',
   },
   button: {
     marginBottom: 8,
