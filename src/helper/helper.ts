@@ -1,5 +1,6 @@
 import {CONFIG} from 'config';
 import {getItem} from './Storage';
+import customMapStyle from 'assets/mapStyle.json';
 
 import {Alert, Dimensions, Platform, Linking} from 'react-native';
 import {Region} from 'react-native-maps';
@@ -12,7 +13,7 @@ import GeoLocationCommunity, {
   GeolocationError,
   GeolocationResponse,
 } from '@react-native-community/geolocation';
-import {TWO_POINT_MAX_KM_DISTANCE} from 'constant/constants';
+import {IS_DARK_SCHEME, TWO_POINT_MAX_KM_DISTANCE} from 'constant/constants';
 
 export const getLanguage = async () => {
   const language = await getItem('language');
@@ -194,3 +195,5 @@ export const removeTagsFromString = (htmlString: string) => {
 
   return htmlString.replace(regex, '');
 };
+
+export const getMapStyle = () => (IS_DARK_SCHEME ? customMapStyle : []);

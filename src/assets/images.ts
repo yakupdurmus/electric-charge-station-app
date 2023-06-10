@@ -11,6 +11,7 @@ const locationPermission = require('./location-permission.jpg');
 const banner1 = require('./banner1.jpg');
 const banner2 = require('./banner2.jpg');
 const banner3 = require('./banner3.jpg');
+const markerSmall = require('./marker-small.png');
 
 export default {
   marker,
@@ -26,4 +27,5 @@ export default {
   banner1,
   banner2,
   banner3,
+  markerSmall,
 };

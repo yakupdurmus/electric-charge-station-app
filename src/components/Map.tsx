@@ -1,11 +1,15 @@
-import React, {StyleSheet, Image, View} from 'react-native';
-import {SCREEN_HEIGHT, getDiameter, getStationsByLocation} from 'helper/helper';
+import React, {StyleSheet} from 'react-native';
+import {
+  SCREEN_HEIGHT,
+  getDiameter,
+  getMapStyle,
+  getStationsByLocation,
+} from 'helper/helper';
 import images from 'assets/images';
-import {Marker, Region} from 'react-native-maps';
-import MapView from 'react-native-map-clustering';
+import MapView, {Marker, Region} from 'react-native-maps';
 import {useCallback, useEffect, useState} from 'react';
 import {IStation} from 'interface/ISettings';
-import {COLOR, TWO_POINT_MAX_KM_DISTANCE} from 'constant/constants';
+import {TWO_POINT_MAX_KM_DISTANCE} from 'constant/constants';
 
 const Map = ({
   mapViewRef,
@@ -29,6 +33,7 @@ const Map = ({
 
       const diameter = getDiameter(newRegion);
       if (diameter > TWO_POINT_MAX_KM_DISTANCE) {
+        setMarkerList([]);
         return;
       }
 
@@ -45,14 +50,15 @@ const Map = ({
         newRegion.longitude > region.longitude + region.longitudeDelta ||
         newRegion.longitude < region.longitude - region.longitudeDelta ||
         newRegion.latitudeDelta > region.latitudeDelta ||
-        newRegion.longitudeDelta > region.longitudeDelta
+        newRegion.longitudeDelta > region.longitudeDelta ||
+        markerList.length === 0
       ) {
         setRegion(newRegion);
         const markers = getStationsByLocation(newRegion);
         setMarkerList(markers);
       }
     },
-    [onRegionChange, region],
+    [onRegionChange, region, markerList],
   );
 
   useEffect(() => {
@@ -61,38 +67,33 @@ const Map = ({
   }, []);
 
   return (
-    <MapView
-      ref={mapViewRef}
-      initialRegion={currenctLocation}
-      showsIndoorLevelPicker={false}
-      showsBuildings={false}
-      showsUserLocation
-      showsMyLocationButton={false}
-      showsTraffic={false}
-      mapPadding={mapPadding}
-      clusterColor={COLOR.secondary.main}
-      onRegionChangeComplete={onRegionChangeComplete}
-      style={styles.map}>
-      {markerList.map((item, index) => {
-        return (
-          <Marker
-            key={item.name + index}
-            onPress={() => onPressMarker(item)}
-            coordinate={{
-              latitude: item.latitude,
-              longitude: item.longitude,
-            }}>
-            <View>
-              <Image
-                source={images.marker}
-                style={styles.markerImage}
-                resizeMode="contain"
-              />
-            </View>
-          </Marker>
-        );
-      })}
-    </MapView>
+    <>
+      <MapView
+        ref={mapViewRef}
+        initialRegion={currenctLocation}
+        showsIndoorLevelPicker={false}
+        showsBuildings={false}
+        showsUserLocation
+        showsMyLocationButton={false}
+        userInterfaceStyle="dark"
+        customMapStyle={getMapStyle()}
+        showsTraffic={false}
+        mapPadding={mapPadding}
+        onRegionChangeComplete={onRegionChangeComplete}
+        style={styles.map}>
+        {markerList.map((item, index) => {
+          return (
+            <Marker
+              key={item.name + index}
+              onPress={() => onPressMarker(item)}
+              coordinate={item}
+              icon={images.markerSmall}
+              tracksViewChanges={false}
+            />
+          );
+        })}
+      </MapView>
+    </>
   );
 };
 
@@ -101,10 +102,6 @@ export default Map;
 const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
-  },
-  markerImage: {
-    width: 38,
-    height: 50,
   },
 });
 

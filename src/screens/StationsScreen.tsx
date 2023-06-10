@@ -8,7 +8,7 @@ import {GeolocationResponse} from '@react-native-community/geolocation';
 import Map from 'components/Map';
 import {IStation, MapType} from 'interface/ISettings';
 import StationInfoModal from 'components/StationInfoModal';
-import {COLOR, INIT_LOCATION} from 'constant/constants';
+import {COLOR, INIT_LOCATION, ZOOM_LEVEL_16} from 'constant/constants';
 import {useNavigation} from '@react-navigation/native';
 import SearchHeader from 'components/SearchHeader';
 import {Icon} from 'common/Icon';
@@ -42,8 +42,7 @@ const StationsScreen = () => {
     setSelectedStation(station);
     setStationModalVisible(true);
     const location = {
-      latitudeDelta: 0,
-      longitudeDelta: 0,
+      ...ZOOM_LEVEL_16,
       latitude: station.latitude,
       longitude: station.longitude,
     };
@@ -123,9 +122,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   bottomContainer: {
-    width: '80%',
     position: 'absolute',
-    bottom: 48,
+    bottom: 24,
+    right: 24,
   },
   actionButtons: {},
   navigateButtonStyle: {marginBottom: 8},

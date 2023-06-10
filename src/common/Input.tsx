@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     borderColor: COLOR.lightGray,
     borderRadius: 4,
     backgroundColor: COLOR.white,
+    color: COLOR.black80,
   },
   titleStlye: {
     fontWeight: 'bold',

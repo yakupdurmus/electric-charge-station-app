@@ -18,7 +18,7 @@ export const Label = (props: ILabel) => {
   ];
 
   return (
-    <Text style={testStyle} {...props}>
+    <Text {...props} style={[testStyle, props.style]}>
       {props.children}
     </Text>
   );

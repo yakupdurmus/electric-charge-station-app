@@ -1,5 +1,5 @@
 import images from 'assets/images';
-
+const IS_DARK_SCHEME = false;
 const COLOR = {
   white: '#fff',
   background: '#f5f5f5',
@@ -51,6 +51,11 @@ const INIT_LOCATION = {
   longitudeDelta: 0.032,
 };
 
+const ZOOM_LEVEL_16 = {
+  latitudeDelta: 0.008106739522311557,
+  longitudeDelta: 0.007725097239017487,
+};
+
 const stationIcons = {
   esarj: images.esarjIcon,
   gcharge: images.gChargeIcon,
@@ -60,7 +65,7 @@ const stationIcons = {
   zes: images.zesIcon,
 };
 
-const TWO_POINT_MAX_KM_DISTANCE = 17;
+const TWO_POINT_MAX_KM_DISTANCE = 70;
 
 export {
   COLOR,
@@ -68,4 +73,6 @@ export {
   INIT_LOCATION,
   TWO_POINT_MAX_KM_DISTANCE,
   stationIcons,
+  ZOOM_LEVEL_16,
+  IS_DARK_SCHEME,
 };
