@@ -87,7 +87,7 @@ const Map = ({
               key={item.name + index}
               onPress={() => onPressMarker(item)}
               coordinate={item}
-              icon={images.markerSmall}
+              icon={images.markerXSmall}
               tracksViewChanges={false}
             />
           );

@@ -12,6 +12,7 @@ const banner1 = require('./banner1.jpg');
 const banner2 = require('./banner2.jpg');
 const banner3 = require('./banner3.jpg');
 const markerSmall = require('./marker-small.png');
+const markerXSmall = require('./marker-xsmall.png');
 
 export default {
   marker,
@@ -28,4 +29,5 @@ export default {
   banner2,
   banner3,
   markerSmall,
+  markerXSmall,
 };
