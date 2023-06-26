@@ -26,3 +26,12 @@ export type StationType =
   | 'powersarj'
   | 'gcharge'
   | 'esarj';
+
+export interface IResponse {
+  success: boolean;
+  data?: any;
+  message?: {
+    title?: string;
+    message: string;
+  };
+}

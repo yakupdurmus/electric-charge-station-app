@@ -1,11 +1,14 @@
 import {ISettings, IUser} from 'interface';
-import {LANGUAGE} from './ISettings';
+import {IStation, LANGUAGE} from './ISettings';
 
 export interface IRootState {
-  app: {
-    user: IUser;
-    settings: ISettings;
-    language: LANGUAGE;
-    onBoarding?: boolean;
-  };
+  app: IBase;
+}
+
+export interface IBase {
+  user: IUser;
+  settings: ISettings;
+  language: LANGUAGE;
+  onBoarding?: boolean;
+  stationByLocation: IStation[];
 }

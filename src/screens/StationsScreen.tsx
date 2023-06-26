@@ -12,21 +12,28 @@ import {COLOR, INIT_LOCATION, ZOOM_LEVEL_16} from 'constant/constants';
 import {useNavigation} from '@react-navigation/native';
 import SearchHeader from 'components/SearchHeader';
 import {Icon} from 'common/Icon';
+import {useDispatch} from 'react-redux';
+import {getStationsByLocation} from 'actions';
 const ANIMATION_DURATION = 500;
 
 const StationsScreen = () => {
   const mapView = useRef<MapView>();
   const navigation = useNavigation<any>();
+  const dispatch = useDispatch<any>();
+  const [markerList, setMarkerList] = useState<IStation[]>([]);
 
   const [currenctLocation, setCurrenctLocation] =
     useState<Region>(INIT_LOCATION);
-  const [_currenctRegion, setCurrenctRegion] = useState<Region>(INIT_LOCATION);
+  const [currenctRegion, setCurrenctRegion] = useState<Region>(INIT_LOCATION);
+
+  const [searchInAreaButtonVisible, setSearchInAreaButtonVisible] =
+    useState(false);
 
   const [stationModalVisible, setStationModalVisible] = useState(false);
   const [selectedStation, setSelectedStation] = useState<IStation>();
 
   useEffect(() => {
-    getCurrentPosition((position: GeolocationResponse) => {
+    getCurrentPosition(async (position: GeolocationResponse) => {
       const newLocation = {
         ...currenctLocation,
         latitude: position.coords.latitude,
@@ -34,6 +41,9 @@ const StationsScreen = () => {
       };
       setCurrenctLocation(newLocation);
       mapView.current?.animateToRegion(newLocation);
+      const markers = await dispatch(getStationsByLocation(newLocation));
+      setMarkerList(markers);
+      setSearchInAreaButtonVisible(false);
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -65,6 +75,13 @@ const StationsScreen = () => {
 
   const onRegionChange = (region: Region) => {
     setCurrenctRegion(region);
+    setSearchInAreaButtonVisible(true);
+  };
+
+  const onPressSearchInAreaButtonVisible = async () => {
+    setSearchInAreaButtonVisible(false);
+    const markers = await dispatch(getStationsByLocation(currenctRegion));
+    setMarkerList(markers);
   };
 
   const onPressSearchInput = () => {
@@ -84,11 +101,14 @@ const StationsScreen = () => {
           currenctLocation={currenctLocation}
           onPressMarker={onPressMarker}
           onRegionChange={onRegionChange}
+          markerList={markerList}
         />
         <SearchHeader
           onPressSearchInput={onPressSearchInput}
           value={selectedStation?.name}
           clearText={clearSelectedStation}
+          searchInAreaButtonVisible={searchInAreaButtonVisible}
+          onPressSearchInAreaButtonVisible={onPressSearchInAreaButtonVisible}
         />
         <StationInfoModal
           station={selectedStation}

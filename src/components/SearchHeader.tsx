@@ -4,15 +4,20 @@ import {Input} from 'common/Input';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Icon} from 'common/Icon';
 import {COLOR} from 'constant/constants';
+import {Button} from 'common/Button';
 
 const SearchHeader = ({
   onPressSearchInput,
   value,
   clearText,
+  searchInAreaButtonVisible,
+  onPressSearchInAreaButtonVisible,
 }: {
   onPressSearchInput: () => void;
   value?: string;
   clearText?: () => void;
+  searchInAreaButtonVisible: boolean;
+  onPressSearchInAreaButtonVisible: () => void;
 }) => {
   const inset = useSafeAreaInsets();
   return (
@@ -32,6 +37,16 @@ const SearchHeader = ({
       <TouchableOpacity style={styles.iconStyle} onPress={clearText}>
         <Icon name="close" />
       </TouchableOpacity>
+      {searchInAreaButtonVisible ? (
+        <View style={styles.searchInAreaContainer}>
+          <Button
+            onPress={onPressSearchInAreaButtonVisible}
+            style={styles.searchInAreaButton}
+            leftIcon="search"
+            label={'Bu alanda ara'}
+          />
+        </View>
+      ) : null}
     </View>
   );
 };
@@ -45,6 +60,13 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     marginTop: 12,
   },
+  searchInAreaContainer: {
+    marginTop: 8,
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+  },
+  searchInAreaButton: {backgroundColor: 'white', borderRadius: 8},
   searchIcon: {
     marginRight: 4,
   },

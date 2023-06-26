@@ -8,6 +8,7 @@ import {
 import {Label} from 'common/Label';
 import Spinner from 'react-native-spinkit';
 import {COLOR} from 'constant/constants';
+import {Icon} from './Icon';
 
 interface ButtonProps extends TouchableOpacityProps {
   style?: any;
@@ -20,6 +21,7 @@ interface ButtonProps extends TouchableOpacityProps {
   left?: any;
   right?: any;
   buttonType?: 'light' | 'yellow' | 'smokeyellow' | 'orange' | 'green' | 'blue';
+  leftIcon: any;
 }
 
 export const Button = (props: ButtonProps) => {
@@ -37,6 +39,9 @@ export const Button = (props: ButtonProps) => {
         props.buttonType && styles[props.buttonType],
         props.style,
       ]}>
+      {props.leftIcon ? (
+        <Icon style={styles.leftIconStyle} name={props.leftIcon} />
+      ) : null}
       {loading ? (
         <Spinner
           size={Platform.OS === 'android' ? 19 : 18}
@@ -58,12 +63,16 @@ export const Button = (props: ButtonProps) => {
 };
 
 const styles = StyleSheet.create({
+  leftIconStyle: {
+    marginRight: 4,
+  },
   buttonStyle: {
     justifyContent: 'center',
     alignItems: 'center',
     padding: 8,
     paddingHorizontal: 12,
     borderRadius: 3,
+    flexDirection: 'row',
   },
   bordered: {
     borderWidth: 1,

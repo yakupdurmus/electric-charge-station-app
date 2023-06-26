@@ -1,10 +1,9 @@
 import {CONFIG} from 'config';
 import {getItem} from './Storage';
 import customMapStyle from 'assets/mapStyle.json';
-
+import CryptoMD5 from 'crypto-js/md5';
 import {Alert, Dimensions, Platform, Linking} from 'react-native';
-import {Region} from 'react-native-maps';
-import {ICoordinate, IStation, MapType} from 'interface/ISettings';
+import {IStation, MapType} from 'interface/ISettings';
 import stations from 'assets/stations/stations';
 
 import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
@@ -13,7 +12,8 @@ import GeoLocationCommunity, {
   GeolocationError,
   GeolocationResponse,
 } from '@react-native-community/geolocation';
-import {IS_DARK_SCHEME, TWO_POINT_MAX_KM_DISTANCE} from 'constant/constants';
+import {DAY_FORMAT, IS_DARK_SCHEME, USER_KEY} from 'constant/constants';
+import moment from 'moment';
 
 export const getLanguage = async () => {
   const language = await getItem('language');
@@ -26,49 +26,6 @@ export const getLanguage = async () => {
 const screenSize = Dimensions.get('screen');
 export const SCREEN_WIDTH = screenSize.width;
 export const SCREEN_HEIGHT = screenSize.height;
-
-export function getDistanceBetweenCoordinates(
-  coord1: ICoordinate,
-  coord2: ICoordinate,
-) {
-  const earthRadius = 6371;
-  const lat1 = coord1.latitude * (Math.PI / 180);
-  const lat2 = coord2.latitude * (Math.PI / 180);
-  const lon1 = coord1.longitude * (Math.PI / 180);
-  const lon2 = coord2.longitude * (Math.PI / 180);
-
-  const dLat = lat2 - lat1;
-  const dLon = lon2 - lon1;
-
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return earthRadius * c;
-}
-
-export const getStationsByLocation = (location: Region): IStation[] => {
-  let diameter = getDiameter(location);
-  diameter =
-    diameter > TWO_POINT_MAX_KM_DISTANCE ? TWO_POINT_MAX_KM_DISTANCE : diameter;
-
-  return stations.allStations.filter(station => {
-    const distance = getDistanceBetweenCoordinates(location, station);
-    return distance < diameter;
-  });
-};
-
-export const getDiameter = (region: Region) => {
-  const kmPerDegreeLat = 111.32; // 1 derece enlem farkının yaklaşık değeri (km)
-  const kmPerDegreeLon = 111.32 * Math.cos(region.latitude * (Math.PI / 180)); // 1 derece boylam farkının yaklaşık değeri (km)
-
-  const latDeltaKm = region.latitudeDelta * kmPerDegreeLat; // Bölgenin enlem delta değerinin kilometre cinsinden değeri
-  const lonDeltaKm = region.longitudeDelta * kmPerDegreeLon; // Bölgenin boylam delta değerinin kilometre cinsinden değeri
-
-  const diameter = Math.max(latDeltaKm, lonDeltaKm); // Bölgenin çapı, enlem delta ve boylam delta arasındaki daha büyük olanıdır
-
-  return diameter;
-};
 
 export const checkLocationPermission = (
   callback: (permissionResult: boolean) => void,
@@ -197,3 +154,9 @@ export const removeTagsFromString = (htmlString: string) => {
 };
 
 export const getMapStyle = () => (IS_DARK_SCHEME ? customMapStyle : []);
+
+export const getHeaderHash = () => {
+  const day = moment().format(DAY_FORMAT);
+  const cryptoHash = CryptoMD5(day + USER_KEY);
+  return cryptoHash.toString();
+};
