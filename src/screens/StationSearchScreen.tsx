@@ -1,25 +1,44 @@
 import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Label} from 'common/Label';
 import {Input} from 'common/Input';
-import stations from 'assets/stations/stations';
 import {IStation} from 'interface/ISettings';
 import {COLOR, stationIcons} from 'constant/constants';
-import {removeTagsFromString, stationSearchWithText} from 'helper/helper';
+import {removeTagsFromString} from 'helper/helper';
 import {Loader} from 'common/Loader';
 import {useNavigation, useRoute} from '@react-navigation/native';
 import Image from 'common/Image';
 import {Icon} from 'common/Icon';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {useDispatch, useSelector} from 'react-redux';
+import {getStationSearch} from 'actions';
+import {IRootState} from 'interface/IBase';
 
 let timer: any;
 
 export default function StationSearchScreen() {
   const navigation = useNavigation();
   const route = useRoute<any>();
-  const [searchStation, setSearchStation] = useState(stations.allStations);
+  const dispatch = useDispatch<any>();
+  const [searchStation, setSearchStation] = useState<IStation[]>([]);
   const [searchText, setSearchText] = useState('');
   const [loading, setLoading] = useState(false);
+  const currenctRegion = useSelector(
+    (state: IRootState) => state.app.currentRegion,
+  );
+  useEffect(() => {
+    getInitialStations();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getInitialStations = () => {
+    dispatch(getStationSearch(currenctRegion, '')).then(
+      (searchResponse: IStation[]) => {
+        setSearchStation(searchResponse);
+        setLoading(false);
+      },
+    );
+  };
 
   const onChangeText = (searchTerm: string) => {
     setSearchText(searchTerm);
@@ -31,21 +50,21 @@ export default function StationSearchScreen() {
 
   const debounceSearch = (searchTerm: string) => {
     setLoading(true);
-    timer = setTimeout(() => {
+    timer = setTimeout(async () => {
       if (searchTerm.length < 3) {
-        setSearchStation(stations.allStations);
-        setLoading(false);
+        getInitialStations();
         return;
       }
-      const searchedStations = stationSearchWithText(searchTerm);
+      const searchedStations = await dispatch(
+        getStationSearch(currenctRegion, searchTerm),
+      );
       setSearchStation(searchedStations);
       setLoading(false);
-      console.log(searchedStations.length, searchedStations[0]?.name);
     }, 1000);
   };
 
   const onPressStation = (station: IStation) => {
-    route.params?.onPressMarker(station);
+    route.params?.refreshMarkerListAndNavigate(station);
     navigation.goBack();
   };
 
@@ -61,7 +80,7 @@ export default function StationSearchScreen() {
           />
           <View style={styles.stationInfoContent}>
             <Label style={styles.itemName} numberOfLines={1}>
-              {item.name}
+              {item.name} {item.distance}
             </Label>
             <Label style={styles.subItemName} numberOfLines={1}>
               {removeTagsFromString(item.stationAddress)}

@@ -3,8 +3,7 @@ import {getItem} from './Storage';
 import customMapStyle from 'assets/mapStyle.json';
 import CryptoMD5 from 'crypto-js/md5';
 import {Alert, Dimensions, Platform, Linking} from 'react-native';
-import {IStation, MapType} from 'interface/ISettings';
-import stations from 'assets/stations/stations';
+import {MapType} from 'interface/ISettings';
 
 import {check, PERMISSIONS, RESULTS} from 'react-native-permissions';
 import GeoLocationCommunity, {
@@ -136,14 +135,6 @@ export const openMap = async (
     console.log(error);
     return false;
   }
-};
-
-export const stationSearchWithText = (term: string): IStation[] => {
-  return stations.allStations.filter(
-    station =>
-      station.name.search(new RegExp(term, 'i')) > -1 ||
-      station.stationAddress.search(new RegExp(term, 'i')) > -1,
-  );
 };
 
 export const removeTagsFromString = (htmlString: string) => {

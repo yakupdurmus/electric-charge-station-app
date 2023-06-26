@@ -24,7 +24,9 @@ const StationInfoModal = ({
     <BottomModal
       isVisible={isVisible}
       onClose={onClose}
-      title={station?.name || 'Elektrikli Şarj İstasyonu'}>
+      title={
+        (station?.name || 'Elektrikli Şarj İstasyonu') + ' ' + station?.distance
+      }>
       <View>
         <View style={styles.content}>
           <Label style={styles.labelStyle}>

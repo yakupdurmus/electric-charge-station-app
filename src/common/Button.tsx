@@ -21,7 +21,7 @@ interface ButtonProps extends TouchableOpacityProps {
   left?: any;
   right?: any;
   buttonType?: 'light' | 'yellow' | 'smokeyellow' | 'orange' | 'green' | 'blue';
-  leftIcon: any;
+  leftIcon?: any;
 }
 
 export const Button = (props: ButtonProps) => {

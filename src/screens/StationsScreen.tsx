@@ -12,8 +12,9 @@ import {COLOR, INIT_LOCATION, ZOOM_LEVEL_16} from 'constant/constants';
 import {useNavigation} from '@react-navigation/native';
 import SearchHeader from 'components/SearchHeader';
 import {Icon} from 'common/Icon';
-import {useDispatch} from 'react-redux';
-import {getStationsByLocation} from 'actions';
+import {IRootState} from 'interface/IBase';
+import {useDispatch, useSelector} from 'react-redux';
+import {getStationsByLocation, setCurrentRegion} from 'actions';
 const ANIMATION_DURATION = 500;
 
 const StationsScreen = () => {
@@ -22,9 +23,12 @@ const StationsScreen = () => {
   const dispatch = useDispatch<any>();
   const [markerList, setMarkerList] = useState<IStation[]>([]);
 
+  const currenctRegion = useSelector(
+    (state: IRootState) => state.app.currentRegion,
+  );
+
   const [currenctLocation, setCurrenctLocation] =
     useState<Region>(INIT_LOCATION);
-  const [currenctRegion, setCurrenctRegion] = useState<Region>(INIT_LOCATION);
 
   const [searchInAreaButtonVisible, setSearchInAreaButtonVisible] =
     useState(false);
@@ -47,6 +51,20 @@ const StationsScreen = () => {
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const refreshMarkerListAndNavigate = async (station: IStation) => {
+    const stationRegion: Region = {
+      ...ZOOM_LEVEL_16,
+      latitude: station.latitude,
+      longitude: station.longitude,
+    };
+
+    const stations: IStation[] = await dispatch(
+      getStationsByLocation(stationRegion),
+    );
+    setMarkerList(stations);
+    onPressMarker(station);
+  };
 
   const onPressMarker = (station: IStation) => {
     setSelectedStation(station);
@@ -74,7 +92,7 @@ const StationsScreen = () => {
   };
 
   const onRegionChange = (region: Region) => {
-    setCurrenctRegion(region);
+    dispatch(setCurrentRegion(region));
     setSearchInAreaButtonVisible(true);
   };
 
@@ -85,7 +103,7 @@ const StationsScreen = () => {
   };
 
   const onPressSearchInput = () => {
-    navigation.navigate('StationSearchScreen', {onPressMarker});
+    navigation.navigate('StationSearchScreen', {refreshMarkerListAndNavigate});
   };
 
   const clearSelectedStation = () => {

@@ -10,6 +10,7 @@ export interface IStation {
   longitude: number;
   stationAddress: string;
   stationType: StationType;
+  distance?: string;
 }
 
 export type MapType = 'appleMaps' | 'googleMaps' | 'yandexMaps';

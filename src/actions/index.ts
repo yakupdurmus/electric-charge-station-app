@@ -1,22 +1,14 @@
-import {ISettings, IUser} from 'interface';
 import {Dispatch} from 'redux';
 import {
-  SETTINGS,
-  USER,
   SET_LANGUAGE,
   SET_ONBOARDING,
   GET_STATION_BY_LOCATION,
+  SET_CURRENT_REGION,
+  GET_STATION_SEARCH,
 } from 'actions/types';
 import {IResponse, LANGUAGE} from 'interface/ISettings';
 import {Region} from 'react-native-maps';
 import axiosInstance from 'helper/axiosInstance';
-
-export const setSettings = (type: ISettings) => (dispatch: Dispatch) => {
-  dispatch({
-    type: SETTINGS,
-    payload: type,
-  });
-};
 
 export const setLanguage = (type: LANGUAGE) => (dispatch: Dispatch) => {
   dispatch({
@@ -32,12 +24,13 @@ export const setOnBoarding = (type: boolean) => (dispatch: Dispatch) => {
   });
 };
 
-export const setUser = (type: IUser) => (dispatch: Dispatch) => {
-  dispatch({
-    type: USER,
-    payload: type,
-  });
-};
+export const setCurrentRegion =
+  (currentRegion: Region) => (dispatch: Dispatch) => {
+    dispatch({
+      type: SET_CURRENT_REGION,
+      payload: currentRegion,
+    });
+  };
 
 export const getStationsByLocation =
   (region: Region) => async (dispatch: Dispatch) => {
@@ -53,5 +46,23 @@ export const getStationsByLocation =
       return response.data.data;
     } catch (error) {
       console.log(error);
+    }
+  };
+
+export const getStationSearch =
+  (region: Region, searchTerm: string) => async (dispatch: Dispatch) => {
+    try {
+      const response = await axiosInstance.get<IResponse>('station-search', {
+        params: {...region, searchTerm},
+      });
+      dispatch({
+        type: GET_STATION_SEARCH,
+        payload: response.data.data,
+      });
+
+      return response.data.data;
+    } catch (error) {
+      console.log(error);
+      return [];
     }
   };
