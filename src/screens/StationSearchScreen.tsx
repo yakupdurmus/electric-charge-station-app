@@ -11,7 +11,7 @@ import Image from 'common/Image';
 import {Icon} from 'common/Icon';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
-import {getStationSearch} from 'actions';
+import {getStationSearch} from 'actions/settingsAction';
 import {IRootState} from 'interface/IBase';
 
 let timer: any;
@@ -23,8 +23,9 @@ export default function StationSearchScreen() {
   const [searchStation, setSearchStation] = useState<IStation[]>([]);
   const [searchText, setSearchText] = useState('');
   const [loading, setLoading] = useState(false);
-  const currenctRegion = useSelector(
-    (state: IRootState) => state.app.currentRegion,
+
+  const currentLocation = useSelector(
+    (state: IRootState) => state.app.currentLocation,
   );
   useEffect(() => {
     getInitialStations();
@@ -32,7 +33,7 @@ export default function StationSearchScreen() {
   }, []);
 
   const getInitialStations = () => {
-    dispatch(getStationSearch(currenctRegion, '')).then(
+    dispatch(getStationSearch(currentLocation, '')).then(
       (searchResponse: IStation[]) => {
         setSearchStation(searchResponse);
         setLoading(false);
@@ -56,7 +57,7 @@ export default function StationSearchScreen() {
         return;
       }
       const searchedStations = await dispatch(
-        getStationSearch(currenctRegion, searchTerm),
+        getStationSearch(currentLocation, searchTerm),
       );
       setSearchStation(searchedStations);
       setLoading(false);

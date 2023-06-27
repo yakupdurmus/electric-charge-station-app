@@ -5,6 +5,7 @@ import {
   SET_ONBOARDING,
   USER,
   SET_CURRENT_REGION,
+  SET_CURRENT_LOCATION,
 } from 'actions/types';
 import {CONFIG} from 'config';
 import {INIT_LOCATION} from 'constant/constants';
@@ -16,6 +17,7 @@ const INITIAL_STATE: IBase = {
   language: CONFIG.defaultLanguage,
   stationByLocation: [],
   currentRegion: INIT_LOCATION,
+  currentLocation: INIT_LOCATION,
 };
 
 const reduxReducer = (state = INITIAL_STATE, action: any) => {
@@ -32,6 +34,8 @@ const reduxReducer = (state = INITIAL_STATE, action: any) => {
       return {...state, stationByLocation: action.payload};
     case SET_CURRENT_REGION:
       return {...state, currentRegion: action.payload};
+    case SET_CURRENT_LOCATION:
+      return {...state, currentLocation: action.payload};
     default:
       return state;
   }

@@ -8,13 +8,17 @@ import {GeolocationResponse} from '@react-native-community/geolocation';
 import Map from 'components/Map';
 import {IStation, MapType} from 'interface/ISettings';
 import StationInfoModal from 'components/StationInfoModal';
-import {COLOR, INIT_LOCATION, ZOOM_LEVEL_16} from 'constant/constants';
+import {COLOR, ZOOM_LEVEL_16} from 'constant/constants';
 import {useNavigation} from '@react-navigation/native';
 import SearchHeader from 'components/SearchHeader';
 import {Icon} from 'common/Icon';
 import {IRootState} from 'interface/IBase';
 import {useDispatch, useSelector} from 'react-redux';
-import {getStationsByLocation, setCurrentRegion} from 'actions';
+import {
+  getStationsByLocation,
+  setCurrentRegion,
+  setCurrentLocation,
+} from 'actions/settingsAction';
 const ANIMATION_DURATION = 500;
 
 const StationsScreen = () => {
@@ -23,12 +27,13 @@ const StationsScreen = () => {
   const dispatch = useDispatch<any>();
   const [markerList, setMarkerList] = useState<IStation[]>([]);
 
-  const currenctRegion = useSelector(
+  const currentRegion = useSelector(
     (state: IRootState) => state.app.currentRegion,
   );
 
-  const [currenctLocation, setCurrenctLocation] =
-    useState<Region>(INIT_LOCATION);
+  const currentLocation = useSelector(
+    (state: IRootState) => state.app.currentLocation,
+  );
 
   const [searchInAreaButtonVisible, setSearchInAreaButtonVisible] =
     useState(false);
@@ -39,13 +44,15 @@ const StationsScreen = () => {
   useEffect(() => {
     getCurrentPosition(async (position: GeolocationResponse) => {
       const newLocation = {
-        ...currenctLocation,
+        ...currentLocation,
         latitude: position.coords.latitude,
         longitude: position.coords.longitude,
       };
-      setCurrenctLocation(newLocation);
+      dispatch(setCurrentLocation(newLocation));
       mapView.current?.animateToRegion(newLocation);
-      const markers = await dispatch(getStationsByLocation(newLocation));
+      const markers = await dispatch(
+        getStationsByLocation(currentRegion, newLocation),
+      );
       setMarkerList(markers);
       setSearchInAreaButtonVisible(false);
     });
@@ -60,7 +67,7 @@ const StationsScreen = () => {
     };
 
     const stations: IStation[] = await dispatch(
-      getStationsByLocation(stationRegion),
+      getStationsByLocation(stationRegion, currentLocation),
     );
     setMarkerList(stations);
     onPressMarker(station);
@@ -81,11 +88,11 @@ const StationsScreen = () => {
     setStationModalVisible(false);
   };
   const onPressNavigateToMyLocation = () => {
-    mapView.current?.animateToRegion(currenctLocation, ANIMATION_DURATION);
+    mapView.current?.animateToRegion(currentLocation, ANIMATION_DURATION);
   };
   const onPressNavigateLocation = () => {
     setStationModalVisible(false);
-    mapView.current?.animateToRegion(currenctLocation, ANIMATION_DURATION);
+    mapView.current?.animateToRegion(currentLocation, ANIMATION_DURATION);
   };
   const onPressOpenMap = (type: MapType, station?: IStation) => {
     openMap(station?.latitude, station?.longitude, type);
@@ -98,7 +105,9 @@ const StationsScreen = () => {
 
   const onPressSearchInAreaButtonVisible = async () => {
     setSearchInAreaButtonVisible(false);
-    const markers = await dispatch(getStationsByLocation(currenctRegion));
+    const markers = await dispatch(
+      getStationsByLocation(currentRegion, currentLocation),
+    );
     setMarkerList(markers);
   };
 
@@ -116,7 +125,7 @@ const StationsScreen = () => {
       <View style={styles.container}>
         <Map
           mapViewRef={mapView}
-          currenctLocation={currenctLocation}
+          currentLocation={currentLocation}
           onPressMarker={onPressMarker}
           onRegionChange={onRegionChange}
           markerList={markerList}

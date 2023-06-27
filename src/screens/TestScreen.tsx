@@ -7,7 +7,7 @@ import RNRestart from 'react-native-restart'; // Import package from node module
 
 import I18n from 'i18n/I18n';
 import {LANGUAGE} from 'interface/ISettings';
-import {setLanguage} from 'actions';
+import {setLanguage} from 'actions/settingsAction';
 import {setItem} from 'helper/Storage';
 import {Label} from 'common/Label';
 const HomeScreen = () => {

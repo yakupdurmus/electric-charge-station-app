@@ -5,6 +5,7 @@ import {
   GET_STATION_BY_LOCATION,
   SET_CURRENT_REGION,
   GET_STATION_SEARCH,
+  SET_CURRENT_LOCATION,
 } from 'actions/types';
 import {IResponse, LANGUAGE} from 'interface/ISettings';
 import {Region} from 'react-native-maps';
@@ -33,10 +34,13 @@ export const setCurrentRegion =
   };
 
 export const getStationsByLocation =
-  (region: Region) => async (dispatch: Dispatch) => {
+  (region: Region, location: Region) => async (dispatch: Dispatch) => {
     try {
       const response = await axiosInstance.get<IResponse>('station', {
-        params: region,
+        params: {
+          region,
+          location,
+        },
       });
       dispatch({
         type: GET_STATION_BY_LOCATION,
@@ -50,10 +54,10 @@ export const getStationsByLocation =
   };
 
 export const getStationSearch =
-  (region: Region, searchTerm: string) => async (dispatch: Dispatch) => {
+  (location: Region, searchTerm: string) => async (dispatch: Dispatch) => {
     try {
       const response = await axiosInstance.get<IResponse>('station-search', {
-        params: {...region, searchTerm},
+        params: {location, searchTerm},
       });
       dispatch({
         type: GET_STATION_SEARCH,
@@ -65,4 +69,12 @@ export const getStationSearch =
       console.log(error);
       return [];
     }
+  };
+
+export const setCurrentLocation =
+  (currentLocation: Region) => (dispatch: Dispatch) => {
+    dispatch({
+      type: SET_CURRENT_LOCATION,
+      payload: currentLocation,
+    });
   };

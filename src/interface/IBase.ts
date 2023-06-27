@@ -1,4 +1,4 @@
-import {ISettings, IUser} from 'interface';
+import {ISettings, IUser} from 'interface/ISettings';
 import {IStation, LANGUAGE} from './ISettings';
 import {Region} from 'react-native-maps';
 
@@ -13,4 +13,5 @@ export interface IBase {
   onBoarding?: boolean;
   stationByLocation: IStation[];
   currentRegion: Region;
+  currentLocation: Region;
 }

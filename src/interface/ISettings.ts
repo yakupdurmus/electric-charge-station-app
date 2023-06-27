@@ -4,6 +4,9 @@ export enum LANGUAGE {
   AR = 'ar',
 }
 
+export interface ISettings {}
+export interface IUser {}
+
 export interface IStation {
   name: string;
   latitude: number;

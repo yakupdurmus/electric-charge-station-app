@@ -5,7 +5,7 @@ import Router from 'router/router';
 import I18n from 'i18n/I18n';
 import {getLanguage} from 'helper/helper';
 import {Provider} from 'react-redux';
-import {setLanguage, setOnBoarding} from 'actions';
+import {setLanguage, setOnBoarding} from 'actions/settingsAction';
 import {LANGUAGE} from 'interface/ISettings';
 import {store} from 'reducers/store';
 import {getItem} from 'helper/Storage';

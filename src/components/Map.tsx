@@ -6,13 +6,13 @@ import {IStation} from 'interface/ISettings';
 
 const Map = ({
   mapViewRef,
-  currenctLocation,
+  currentLocation,
   onPressMarker,
   onRegionChange,
   markerList,
 }: {
   mapViewRef: any;
-  currenctLocation: Region;
+  currentLocation: Region;
   onPressMarker: (station: IStation) => void;
   onRegionChange?: (region: Region) => void;
   markerList: IStation[];
@@ -21,7 +21,7 @@ const Map = ({
     <>
       <MapView
         ref={mapViewRef}
-        initialRegion={currenctLocation}
+        initialRegion={currentLocation}
         showsIndoorLevelPicker={false}
         showsBuildings={false}
         showsUserLocation
