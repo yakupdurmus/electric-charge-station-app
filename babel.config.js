@@ -26,10 +26,14 @@ const moduleResolverPlugin = [
 ];
 
 module.exports = function (api) {
+  const isDevelopment = api.env('development');
   api.cache(false);
 
   return {
     presets: ['module:metro-react-native-babel-preset'],
-    plugins: [moduleResolverPlugin, 'transform-remove-console'],
+    plugins: [
+      moduleResolverPlugin,
+      isDevelopment ? undefined : 'transform-remove-console',
+    ].filter(Boolean),
   };
 };
