@@ -13,6 +13,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import {getStationSearch} from 'actions/settingsAction';
 import {IRootState} from 'interface/IBase';
+import isEmpty from 'lodash/isEmpty';
 
 let timer: any;
 
@@ -102,6 +103,14 @@ export default function StationSearchScreen() {
       </View>
     );
   };
+  const renderInitialState = () => {
+    return (
+      <View style={styles.emptyStateContainer}>
+        <Icon style={styles.iconStyle} name="search" type="MaterialIcons" />
+        <Label style={styles.emptyTextStyle}>Çevredeki istasyonları ara</Label>
+      </View>
+    );
+  };
 
   return (
     <SafeAreaProvider>
@@ -129,7 +138,11 @@ export default function StationSearchScreen() {
               renderItem={renderItem}
               style={styles.list}
               contentContainerStyle={styles.contentContainerStyle}
-              ListEmptyComponent={renderEmptyState}
+              ListEmptyComponent={
+                !isEmpty(searchText) && searchText.length > 3
+                  ? renderEmptyState
+                  : renderInitialState
+              }
             />
           )}
         </View>

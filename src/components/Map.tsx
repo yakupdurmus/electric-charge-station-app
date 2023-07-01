@@ -15,7 +15,7 @@ const Map = ({
   currentLocation: Region;
   onPressMarker: (station: IStation) => void;
   onRegionChange?: (region: Region) => void;
-  markerList: IStation[];
+  markerList?: IStation[];
 }): JSX.Element => {
   return (
     <>
@@ -31,17 +31,18 @@ const Map = ({
         mapPadding={mapPadding}
         onRegionChangeComplete={onRegionChange}
         style={styles.map}>
-        {markerList.map((item, index) => {
-          return (
-            <Marker
-              key={item.name + index}
-              onPress={() => onPressMarker(item)}
-              coordinate={item}
-              icon={images.markerSmall}
-              tracksViewChanges={false}
-            />
-          );
-        })}
+        {markerList &&
+          markerList.map((item, index) => {
+            return (
+              <Marker
+                key={item.name + index}
+                onPress={() => onPressMarker(item)}
+                coordinate={item}
+                icon={images.markerSmall}
+                tracksViewChanges={false}
+              />
+            );
+          })}
       </MapView>
     </>
   );

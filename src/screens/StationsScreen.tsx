@@ -50,8 +50,8 @@ const StationsScreen = () => {
       };
       dispatch(setCurrentLocation(newLocation));
       mapView.current?.animateToRegion(newLocation);
-      const markers = await dispatch(
-        getStationsByLocation(currentRegion, newLocation),
+      const markers: IStation[] = await dispatch(
+        getStationsByLocation(newLocation, newLocation),
       );
       setMarkerList(markers);
       setSearchInAreaButtonVisible(false);

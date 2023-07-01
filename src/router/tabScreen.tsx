@@ -14,8 +14,8 @@ export const screenOptions = ({route}: {route: RouteProp<any>}): any =>
       tabBarIcon: ({focused}: {focused: boolean}): JSX.Element => (
         <Icon
           style={{color: focused ? COLOR.primary.main : COLOR.text}}
-          name={'home'}
-          type="AntDesign"
+          name={'format-list-bulleted'}
+          type="MaterialIcons"
         />
       ),
       title: 'Fiyat Listesi',
