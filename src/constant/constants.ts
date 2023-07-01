@@ -65,7 +65,8 @@ const stationIcons = {
   zes: images.zesIcon,
 };
 
-const API_URL = 'https://ws-ecs.vercel.app/';
+const API_URL_PROD = 'https://ws-ecs.vercel.app/';
+const API_URL_DEV = 'https://ws-ecs-git-develop-yakupdurmus.vercel.app/';
 const API_URL_LOCAL = 'http://localhost:4000/';
 const DAY_FORMAT = 'DD-MM-YYYY';
 const USER_KEY = 'yakupdurmus';
@@ -77,8 +78,9 @@ export {
   stationIcons,
   ZOOM_LEVEL_16,
   IS_DARK_SCHEME,
-  API_URL,
+  API_URL_PROD,
+  API_URL_DEV,
+  API_URL_LOCAL,
   DAY_FORMAT,
   USER_KEY,
-  API_URL_LOCAL,
 };
