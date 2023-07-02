@@ -6,6 +6,8 @@ import {Button} from 'common/Button';
 import {Label} from 'common/Label';
 import RenderHtml from 'react-native-render-html';
 import {SCREEN_WIDTH} from 'helper/helper';
+import Image from 'common/Image';
+import {stationIcons} from 'constant/constants';
 
 const StationInfoModal = ({
   isVisible,
@@ -24,14 +26,22 @@ const StationInfoModal = ({
     <BottomModal
       isVisible={isVisible}
       onClose={onClose}
-      title={
-        (station?.name || 'Elektrikli Şarj İstasyonu') + ' ' + station?.distance
-      }>
+      title={`${station?.name || 'Elektrikli Şarj İstasyonu'} ~${
+        station?.distance
+      }km`}>
       <View>
         <View style={styles.content}>
           <Label style={styles.labelStyle}>
             {station?.stationType.toUpperCase()}
           </Label>
+          {station ? (
+            <Image
+              source={stationIcons[station.stationType]}
+              style={styles.stationIconStyle}
+              resizeMode="contain"
+            />
+          ) : null}
+
           {station?.stationAddress ? (
             <View style={styles.htmlContainer}>
               <RenderHtml
@@ -79,5 +89,9 @@ const styles = StyleSheet.create({
   },
   labelStyle: {
     marginBottom: 8,
+  },
+  stationIconStyle: {
+    width: 50,
+    height: 50,
   },
 });

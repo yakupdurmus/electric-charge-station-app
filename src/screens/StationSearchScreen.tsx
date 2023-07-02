@@ -82,7 +82,7 @@ export default function StationSearchScreen() {
           />
           <View style={styles.stationInfoContent}>
             <Label style={styles.itemName} numberOfLines={1}>
-              {item.name} {item.distance}
+              {item.name} ~{item.distance}km
             </Label>
             <Label style={styles.subItemName} numberOfLines={1}>
               {removeTagsFromString(item.stationAddress)}
