@@ -68,7 +68,7 @@ const stationIcons = {
 const API_URL_PROD = 'https://ws-ecs.vercel.app/';
 const API_URL_DEV = 'https://ws-ecs-git-develop-yakupdurmus.vercel.app/';
 const API_URL_LOCAL = 'http://localhost:4000/';
-const DAY_FORMAT = 'DD-MM-YYYY';
+const MONTH_FORMAT = 'MM-YYYY';
 const USER_KEY = 'yakupdurmus';
 
 export {
@@ -81,6 +81,6 @@ export {
   API_URL_PROD,
   API_URL_DEV,
   API_URL_LOCAL,
-  DAY_FORMAT,
+  MONTH_FORMAT,
   USER_KEY,
 };

@@ -11,7 +11,7 @@ import GeoLocationCommunity, {
   GeolocationError,
   GeolocationResponse,
 } from '@react-native-community/geolocation';
-import {DAY_FORMAT, IS_DARK_SCHEME, USER_KEY} from 'constant/constants';
+import {MONTH_FORMAT, IS_DARK_SCHEME, USER_KEY} from 'constant/constants';
 import moment from 'moment';
 
 export const getLanguage = async () => {
@@ -147,7 +147,7 @@ export const removeTagsFromString = (htmlString: string) => {
 export const getMapStyle = () => (IS_DARK_SCHEME ? customMapStyle : []);
 
 export const getHeaderHash = () => {
-  const day = moment().format(DAY_FORMAT);
+  const day = moment().format(MONTH_FORMAT);
   const cryptoHash = CryptoMD5(day + USER_KEY);
   return cryptoHash.toString();
 };
