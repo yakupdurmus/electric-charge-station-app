@@ -20,6 +20,7 @@ import {
   setCurrentLocation,
 } from 'actions/settingsAction';
 const ANIMATION_DURATION = 500;
+let timeoutID: any;
 
 const StationsScreen = () => {
   const mapView = useRef<MapView>();
@@ -35,7 +36,7 @@ const StationsScreen = () => {
     (state: IRootState) => state.app.currentLocation,
   );
 
-  const [searchInAreaButtonVisible, setSearchInAreaButtonVisible] =
+  const [searchInAreaLoaderVisible, setSearchInAreaLoaderVisible] =
     useState(false);
 
   const [stationModalVisible, setStationModalVisible] = useState(false);
@@ -54,7 +55,7 @@ const StationsScreen = () => {
         getStationsByLocation(newLocation, newLocation),
       );
       setMarkerList(markers);
-      setSearchInAreaButtonVisible(false);
+      setSearchInAreaLoaderVisible(false);
     });
   };
 
@@ -103,17 +104,21 @@ const StationsScreen = () => {
     openMap(station?.latitude, station?.longitude, type);
   };
 
-  const onRegionChange = (region: Region) => {
+  const onRegionChange = async (region: Region) => {
     dispatch(setCurrentRegion(region));
-    setSearchInAreaButtonVisible(true);
-  };
 
-  const onPressSearchInAreaButtonVisible = async () => {
-    setSearchInAreaButtonVisible(false);
-    const markers = await dispatch(
-      getStationsByLocation(currentRegion, currentLocation),
-    );
-    setMarkerList(markers);
+    if (timeoutID) {
+      clearTimeout(timeoutID);
+    }
+
+    timeoutID = setTimeout(async () => {
+      setSearchInAreaLoaderVisible(true);
+      const markers = await dispatch(
+        getStationsByLocation(currentRegion, currentLocation),
+      );
+      setMarkerList(markers);
+      setSearchInAreaLoaderVisible(false);
+    }, 1500);
   };
 
   const onPressSearchInput = () => {
@@ -139,8 +144,7 @@ const StationsScreen = () => {
           onPressSearchInput={onPressSearchInput}
           value={selectedStation?.name}
           clearText={clearSelectedStation}
-          searchInAreaButtonVisible={searchInAreaButtonVisible}
-          onPressSearchInAreaButtonVisible={onPressSearchInAreaButtonVisible}
+          searchInAreaLoaderVisible={searchInAreaLoaderVisible}
         />
         <StationInfoModal
           station={selectedStation}

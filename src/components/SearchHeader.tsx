@@ -4,20 +4,18 @@ import {Input} from 'common/Input';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Icon} from 'common/Icon';
 import {COLOR} from 'constant/constants';
-import {Button} from 'common/Button';
+import {Loader} from 'common/Loader';
 
 const SearchHeader = ({
   onPressSearchInput,
   value,
   clearText,
-  searchInAreaButtonVisible,
-  onPressSearchInAreaButtonVisible,
+  searchInAreaLoaderVisible,
 }: {
   onPressSearchInput: () => void;
   value?: string;
   clearText?: () => void;
-  searchInAreaButtonVisible: boolean;
-  onPressSearchInAreaButtonVisible: () => void;
+  searchInAreaLoaderVisible: boolean;
 }) => {
   const inset = useSafeAreaInsets();
   return (
@@ -37,14 +35,9 @@ const SearchHeader = ({
       <TouchableOpacity style={styles.iconStyle} onPress={clearText}>
         <Icon name="close" />
       </TouchableOpacity>
-      {searchInAreaButtonVisible ? (
+      {searchInAreaLoaderVisible ? (
         <View style={styles.searchInAreaContainer}>
-          <Button
-            onPress={onPressSearchInAreaButtonVisible}
-            style={styles.searchInAreaButton}
-            leftIcon="search"
-            label={'Bu alanda ara'}
-          />
+          <Loader size={20} />
         </View>
       ) : null}
     </View>
