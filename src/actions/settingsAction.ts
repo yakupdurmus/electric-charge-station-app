@@ -36,11 +36,9 @@ export const setCurrentRegion =
 export const getStationsByLocation =
   (region: Region, location: Region) => async (dispatch: Dispatch) => {
     try {
-      const response = await axiosInstance.get<IResponse>('station', {
-        params: {
-          region,
-          location,
-        },
+      const response = await axiosInstance.post<IResponse>('station', {
+        region,
+        location,
       });
       dispatch({
         type: GET_STATION_BY_LOCATION,
@@ -56,8 +54,9 @@ export const getStationsByLocation =
 export const getStationSearch =
   (location: Region, searchTerm: string) => async (dispatch: Dispatch) => {
     try {
-      const response = await axiosInstance.get<IResponse>('station-search', {
-        params: {location, searchTerm},
+      const response = await axiosInstance.post<IResponse>('station-search', {
+        location,
+        searchTerm,
       });
       dispatch({
         type: GET_STATION_SEARCH,
