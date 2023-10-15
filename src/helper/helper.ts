@@ -31,8 +31,8 @@ export const checkLocationPermission = (
 ) => {
   const permissionRequest =
     Platform.OS === 'android'
-      ? PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION
-      : PERMISSIONS.IOS.LOCATION_ALWAYS;
+      ? PERMISSIONS.ANDROID.ACCESS_COARSE_LOCATION
+      : PERMISSIONS.IOS.LOCATION_WHEN_IN_USE;
 
   check(permissionRequest)
     .then(result => {

@@ -41,7 +41,7 @@ const StationsScreen = () => {
   const [stationModalVisible, setStationModalVisible] = useState(false);
   const [selectedStation, setSelectedStation] = useState<IStation>();
 
-  useEffect(() => {
+  const getUserLocation = () => {
     getCurrentPosition(async (position: GeolocationResponse) => {
       const newLocation = {
         ...currentLocation,
@@ -56,6 +56,10 @@ const StationsScreen = () => {
       setMarkerList(markers);
       setSearchInAreaButtonVisible(false);
     });
+  };
+
+  useEffect(() => {
+    getUserLocation();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -88,6 +92,7 @@ const StationsScreen = () => {
     setStationModalVisible(false);
   };
   const onPressNavigateToMyLocation = () => {
+    getUserLocation();
     mapView.current?.animateToRegion(currentLocation, ANIMATION_DURATION);
   };
   const onPressNavigateLocation = () => {
