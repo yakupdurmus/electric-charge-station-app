@@ -28,10 +28,6 @@ const StationsScreen = () => {
   const dispatch = useDispatch<any>();
   const [markerList, setMarkerList] = useState<IStation[]>([]);
 
-  const currentRegion = useSelector(
-    (state: IRootState) => state.app.currentRegion,
-  );
-
   const currentLocation = useSelector(
     (state: IRootState) => state.app.currentLocation,
   );
@@ -114,7 +110,7 @@ const StationsScreen = () => {
     timeoutID = setTimeout(async () => {
       setSearchInAreaLoaderVisible(true);
       const markers = await dispatch(
-        getStationsByLocation(currentRegion, currentLocation),
+        getStationsByLocation(region, currentLocation),
       );
       setMarkerList(markers);
       setSearchInAreaLoaderVisible(false);

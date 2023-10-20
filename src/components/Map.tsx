@@ -1,4 +1,4 @@
-import React, {StyleSheet} from 'react-native';
+import React, {StyleSheet, Image} from 'react-native';
 import {SCREEN_HEIGHT, getMapStyle} from 'helper/helper';
 import images from 'assets/images';
 import MapView, {Marker, Region} from 'react-native-maps';
@@ -38,9 +38,13 @@ const Map = ({
                 key={item.name + index}
                 onPress={() => onPressMarker(item)}
                 coordinate={item}
-                icon={images.markerSmall}
-                tracksViewChanges={false}
-              />
+                tracksViewChanges={false}>
+                <Image
+                  style={styles.image}
+                  resizeMode="contain"
+                  source={images.markerSmall}
+                />
+              </Marker>
             );
           })}
       </MapView>
@@ -53,6 +57,10 @@ export default Map;
 const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
+  },
+  image: {
+    width: 32,
+    height: 46,
   },
 });
 
