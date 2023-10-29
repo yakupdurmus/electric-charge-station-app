@@ -36,11 +36,11 @@
 		</dict>
 	</dict>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>Location permisson request</string>
+	<string>Çevrendeki istasyonların görüntülenebilmesi için lokasyon bilgisi kullanılmaktadır.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>Location permisson request</string>
+	<string>Çevrendeki istasyonların görüntülenebilmesi için lokasyon bilgisi kullanılmaktadır.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>Location permisson request</string>
+	<string>Çevrendeki istasyonların görüntülenebilmesi için lokasyon bilgisi kullanılmaktadır.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
