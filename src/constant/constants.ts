@@ -71,6 +71,11 @@ const API_URL_LOCAL = 'http://192.168.1.104:4000/';
 const MONTH_FORMAT = 'MM-YYYY';
 const USER_KEY = 'yakupdurmus';
 
+const STORAGE_KEY = {
+  favorite: 'favoriteStation',
+  onBoarding: 'onBoarding',
+};
+
 export {
   COLOR,
   INPUTMASK,
@@ -83,4 +88,5 @@ export {
   API_URL_LOCAL,
   MONTH_FORMAT,
   USER_KEY,
+  STORAGE_KEY,
 };

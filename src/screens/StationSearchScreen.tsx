@@ -1,19 +1,18 @@
-import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Label} from 'common/Label';
 import {Input} from 'common/Input';
 import {IStation} from 'interface/ISettings';
-import {COLOR, stationIcons} from 'constant/constants';
-import {removeTagsFromString} from 'helper/helper';
+import {COLOR} from 'constant/constants';
 import {Loader} from 'common/Loader';
 import {useNavigation, useRoute} from '@react-navigation/native';
-import Image from 'common/Image';
 import {Icon} from 'common/Icon';
 import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {useDispatch, useSelector} from 'react-redux';
 import {getStationSearch} from 'actions/settingsAction';
 import {IRootState} from 'interface/IBase';
 import isEmpty from 'lodash/isEmpty';
+import ListItem from 'components/ListItem';
 
 let timer: any;
 
@@ -71,26 +70,7 @@ export default function StationSearchScreen() {
   };
 
   const renderItem = ({item}: {item: IStation}) => {
-    return (
-      <TouchableOpacity
-        style={styles.content}
-        onPress={() => onPressStation(item)}>
-        <View style={styles.row}>
-          <Image
-            source={stationIcons[item.stationType]}
-            style={styles.stationIcon}
-          />
-          <View style={styles.stationInfoContent}>
-            <Label style={styles.itemName} numberOfLines={1}>
-              {item.name} ~{item.distance}km
-            </Label>
-            <Label style={styles.subItemName} numberOfLines={1}>
-              {removeTagsFromString(item.stationAddress)}
-            </Label>
-          </View>
-        </View>
-      </TouchableOpacity>
-    );
+    return <ListItem item={item} onPress={onPressStation} />;
   };
 
   const renderEmptyState = () => {
@@ -160,28 +140,7 @@ const styles = StyleSheet.create({
   contentContainerStyle: {
     paddingBottom: 48,
   },
-  content: {
-    paddingHorizontal: 16,
-    paddingVertical: 16,
-  },
-  row: {
-    flexDirection: 'row',
-  },
-  stationIcon: {
-    marginRight: 8,
-    width: 30,
-    height: 30,
-  },
-  stationInfoContent: {
-    flex: 1,
-  },
-  itemName: {
-    color: COLOR.text,
-    marginBottom: 4,
-  },
-  subItemName: {
-    color: COLOR.textSecondary,
-  },
+
   header: {
     backgroundColor: COLOR.white,
     paddingHorizontal: 16,

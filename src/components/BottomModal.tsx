@@ -1,10 +1,10 @@
-import {View} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {StyleSheet} from 'react-native';
 import Modal from 'react-native-modal';
-import {Button} from 'common/Button';
 import {Label} from 'common/Label';
 import {COLOR} from 'constant/constants';
+import {Icon} from 'common/Icon';
 
 interface IProps {
   isVisible?: boolean;
@@ -13,6 +13,7 @@ interface IProps {
   children?: JSX.Element;
   modalTopComponent?: JSX.Element;
   title?: string;
+  renderTitle?: React.ReactElement;
 }
 
 export default function BottomModal(props: IProps) {
@@ -34,10 +35,17 @@ export default function BottomModal(props: IProps) {
             <View style={styles.gestureTouch} />
           </View>
           <View style={styles.title}>
-            <Label numberOfLines={1} style={styles.titleLabel}>
-              {props.title}
-            </Label>
-            <Button onPress={props.onClose} label={'Kapat'} />
+            {props.renderTitle ? (
+              props.renderTitle
+            ) : (
+              <Label numberOfLines={1} style={styles.titleLabel}>
+                {props.title}
+              </Label>
+            )}
+
+            <TouchableOpacity onPress={props.onClose}>
+              <Icon name="close" style={styles.iconStyle} />
+            </TouchableOpacity>
           </View>
           <View>{props.children}</View>
         </View>
@@ -65,6 +73,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignContent: 'space-around',
     justifyContent: 'center',
+    alignItems: 'center',
   },
   titleLabel: {
     marginTop: 8,
@@ -79,7 +88,10 @@ const styles = StyleSheet.create({
     borderRadius: 2,
     backgroundColor: COLOR.lightGray2,
   },
-
+  iconStyle: {
+    fontSize: 24,
+    paddingHorizontal: 8,
+  },
   gestureTouchContainer: {
     top: 8,
     position: 'absolute',

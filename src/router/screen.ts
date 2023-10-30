@@ -4,6 +4,7 @@ import StationsScreen from 'screens/StationsScreen';
 import MapPermissionScreen from 'screens/MapPermissionScreen';
 import StationSearchScreen from 'screens/StationSearchScreen';
 import FeedbackForm from 'screens/FeedbackForm';
+import FavoriteStationScreen from 'screens/FavoriteStationScreen';
 export {
   HomeScreen,
   LoginScreen,
@@ -11,4 +12,5 @@ export {
   MapPermissionScreen,
   StationSearchScreen,
   FeedbackForm,
+  FavoriteStationScreen,
 };

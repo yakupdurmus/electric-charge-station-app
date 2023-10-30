@@ -1,15 +1,13 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {SafeAreaView, StyleSheet, TouchableOpacity, View} from 'react-native';
 import MapView, {Region} from 'react-native-maps';
-
 import {getCurrentPosition, openMap} from 'helper/helper';
-
 import {GeolocationResponse} from '@react-native-community/geolocation';
 import Map from 'components/Map';
 import {IStation, MapType} from 'interface/ISettings';
 import StationInfoModal from 'components/StationInfoModal';
 import {COLOR, ZOOM_LEVEL_16} from 'constant/constants';
-import {useNavigation} from '@react-navigation/native';
+import {RouteProp, useNavigation, useRoute} from '@react-navigation/native';
 import SearchHeader from 'components/SearchHeader';
 import {Icon} from 'common/Icon';
 import {IRootState} from 'interface/IBase';
@@ -19,18 +17,70 @@ import {
   setCurrentRegion,
   setCurrentLocation,
 } from 'actions/settingsAction';
+import {isEmpty} from 'lodash';
+import {RootStackParamTypes} from 'interface/NavigationTypes';
+import {BottomTabNavigationProp} from '@react-navigation/bottom-tabs';
 const ANIMATION_DURATION = 500;
 let timeoutID: any;
 
 const StationsScreen = () => {
+  type NavigationRouteProp = RouteProp<RootStackParamTypes, 'StationsScreen'>;
+  type NavigationProps = BottomTabNavigationProp<
+    RootStackParamTypes,
+    'StationsScreen'
+  >;
+
   const mapView = useRef<MapView>();
-  const navigation = useNavigation<any>();
+  const navigation = useNavigation<NavigationProps>();
   const dispatch = useDispatch<any>();
   const [markerList, setMarkerList] = useState<IStation[]>([]);
-
+  const route = useRoute<NavigationRouteProp>();
   const currentLocation = useSelector(
     (state: IRootState) => state.app.currentLocation,
   );
+
+  const onPressMarker = useCallback(
+    (station: IStation) => {
+      setSelectedStation(station);
+      setStationModalVisible(true);
+      const location = {
+        ...currentLocation,
+        latitude: station.latitude,
+        longitude: station.longitude,
+      };
+      mapView.current?.animateToRegion(location, ANIMATION_DURATION);
+    },
+    [currentLocation],
+  );
+
+  const refreshMarkerListAndNavigate = useCallback(
+    async (station: IStation) => {
+      const stationRegion: Region = {
+        ...ZOOM_LEVEL_16,
+        latitude: station.latitude,
+        longitude: station.longitude,
+      };
+
+      const stations: IStation[] = await dispatch(
+        getStationsByLocation(stationRegion, currentLocation),
+      );
+      setMarkerList(stations);
+      onPressMarker(station);
+    },
+    [currentLocation, dispatch, onPressMarker],
+  );
+
+  useEffect(() => {
+    if (!route.params) return;
+
+    const {selectedStation} = route.params;
+
+    if (!isEmpty(selectedStation)) {
+      navigation.setParams({selectedStation: undefined});
+      refreshMarkerListAndNavigate(selectedStation);
+    }
+    return () => {};
+  }, [navigation, refreshMarkerListAndNavigate, route.params]);
 
   const [searchInAreaLoaderVisible, setSearchInAreaLoaderVisible] =
     useState(false);
@@ -59,31 +109,6 @@ const StationsScreen = () => {
     getUserLocation();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
-  const refreshMarkerListAndNavigate = async (station: IStation) => {
-    const stationRegion: Region = {
-      ...ZOOM_LEVEL_16,
-      latitude: station.latitude,
-      longitude: station.longitude,
-    };
-
-    const stations: IStation[] = await dispatch(
-      getStationsByLocation(stationRegion, currentLocation),
-    );
-    setMarkerList(stations);
-    onPressMarker(station);
-  };
-
-  const onPressMarker = (station: IStation) => {
-    setSelectedStation(station);
-    setStationModalVisible(true);
-    const location = {
-      ...ZOOM_LEVEL_16,
-      latitude: station.latitude,
-      longitude: station.longitude,
-    };
-    mapView.current?.animateToRegion(location, ANIMATION_DURATION);
-  };
 
   const modalOnClose = () => {
     setStationModalVisible(false);
@@ -118,7 +143,9 @@ const StationsScreen = () => {
   };
 
   const onPressSearchInput = () => {
-    navigation.navigate('StationSearchScreen', {refreshMarkerListAndNavigate});
+    navigation.navigate('StationSearchScreen', {
+      refreshMarkerListAndNavigate,
+    });
   };
 
   const clearSelectedStation = () => {

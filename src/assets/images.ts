@@ -13,6 +13,9 @@ const banner2 = require('./banner2.jpg');
 const banner3 = require('./banner3.jpg');
 const markerSmall = require('./marker-small.png');
 const markerXSmall = require('./marker-xsmall.png');
+const appleLocation = require('./apple-map.png');
+const googleLocation = require('./google-map.png');
+const myLocation = require('./my-location.png');
 
 export default {
   marker,
@@ -30,4 +33,7 @@ export default {
   banner3,
   markerSmall,
   markerXSmall,
+  appleLocation,
+  googleLocation,
+  myLocation,
 };

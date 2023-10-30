@@ -6,8 +6,9 @@ import {
   SET_CURRENT_REGION,
   GET_STATION_SEARCH,
   SET_CURRENT_LOCATION,
+  SET_FAVORITE_STATION,
 } from 'actions/types';
-import {IResponse, LANGUAGE} from 'interface/ISettings';
+import {IResponse, IStation, LANGUAGE} from 'interface/ISettings';
 import {Region} from 'react-native-maps';
 import axiosInstance from 'helper/axiosInstance';
 
@@ -75,5 +76,13 @@ export const setCurrentLocation =
     dispatch({
       type: SET_CURRENT_LOCATION,
       payload: currentLocation,
+    });
+  };
+
+export const setFavoriteStation =
+  (stations: IStation[]) => (dispatch: Dispatch) => {
+    dispatch({
+      type: SET_FAVORITE_STATION,
+      payload: stations,
     });
   };

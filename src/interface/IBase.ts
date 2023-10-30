@@ -14,4 +14,5 @@ export interface IBase {
   stationByLocation: IStation[];
   currentRegion: Region;
   currentLocation: Region;
+  favoriteStation: IStation[];
 }

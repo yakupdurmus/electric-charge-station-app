@@ -48,6 +48,16 @@ export const screenOptions = ({route}: {route: RouteProp<any>}): any =>
       ),
       title: 'Geri Bildirim',
     },
+    [Screen.FavoriteStationScreen.name]: {
+      title: 'Favoriler',
+      tabBarIcon: ({focused}: {focused: boolean}): JSX.Element => (
+        <Icon
+          style={{color: focused ? COLOR.primary.main : COLOR.text}}
+          name={focused ? 'heart' : 'heart-o'}
+          type="FontAwesome"
+        />
+      ),
+    },
   }[route.name]);
 
 const TabScreen = (): JSX.Element => {
@@ -62,6 +72,11 @@ const TabScreen = (): JSX.Element => {
         name={Screen.StationsScreen.name}
         options={screenOptions}
         component={Screen.StationsScreen}
+      />
+      <Tab.Screen
+        name={Screen.FavoriteStationScreen.name}
+        options={screenOptions}
+        component={Screen.FavoriteStationScreen}
       />
       <Tab.Screen
         name={Screen.FeedbackForm.name}

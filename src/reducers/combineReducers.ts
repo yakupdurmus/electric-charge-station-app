@@ -6,6 +6,7 @@ import {
   USER,
   SET_CURRENT_REGION,
   SET_CURRENT_LOCATION,
+  SET_FAVORITE_STATION,
 } from 'actions/types';
 import {CONFIG} from 'config';
 import {INIT_LOCATION} from 'constant/constants';
@@ -18,6 +19,7 @@ const INITIAL_STATE: IBase = {
   stationByLocation: [],
   currentRegion: INIT_LOCATION,
   currentLocation: INIT_LOCATION,
+  favoriteStation: [],
 };
 
 const reduxReducer = (state = INITIAL_STATE, action: any) => {
@@ -36,6 +38,8 @@ const reduxReducer = (state = INITIAL_STATE, action: any) => {
       return {...state, currentRegion: action.payload};
     case SET_CURRENT_LOCATION:
       return {...state, currentLocation: action.payload};
+    case SET_FAVORITE_STATION:
+      return {...state, favoriteStation: action.payload};
     default:
       return state;
   }

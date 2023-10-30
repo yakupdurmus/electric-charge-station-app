@@ -38,6 +38,10 @@ export default function Router() {
           name={Screen.LoginScreen.name}
           component={Screen.LoginScreen}
         />
+        <Stack.Screen
+          name={Screen.FavoriteStationScreen.name}
+          component={Screen.FavoriteStationScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
