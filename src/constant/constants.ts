@@ -57,12 +57,12 @@ const ZOOM_LEVEL_16 = {
 };
 
 const stationIcons = {
-  esarj: images.esarjIcon,
-  gcharge: images.gChargeIcon,
-  powersarj: images.powerIcon,
-  sharz: images.sharzIcon,
-  voltrun: images.voltrunIcon,
-  zes: images.zesIcon,
+  esarj: images.esarjIconS,
+  gcharge: images.gChargeIconS,
+  powersarj: images.powerIconS,
+  sharz: images.sharzIconS,
+  voltrun: images.voltrunIconS,
+  zes: images.zesIconS,
 };
 
 const API_URL_PROD = 'https://ws-ecs.vercel.app/';

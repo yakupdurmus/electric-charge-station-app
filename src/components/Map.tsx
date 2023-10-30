@@ -1,8 +1,9 @@
-import React, {StyleSheet, Image} from 'react-native';
+import React, {StyleSheet, Image, View} from 'react-native';
 import {SCREEN_HEIGHT, getMapStyle} from 'helper/helper';
 import images from 'assets/images';
 import MapView, {Marker, Region} from 'react-native-maps';
 import {IStation} from 'interface/ISettings';
+import {stationIcons} from 'constant/constants';
 
 const Map = ({
   mapViewRef,
@@ -39,11 +40,18 @@ const Map = ({
                 onPress={() => onPressMarker(item)}
                 coordinate={item}
                 tracksViewChanges={false}>
-                <Image
-                  style={styles.image}
-                  resizeMode="contain"
-                  source={images.markerSmall}
-                />
+                <View removeClippedSubviews>
+                  <Image
+                    style={styles.image}
+                    resizeMode="contain"
+                    source={images.markerSmall}
+                  />
+                  <Image
+                    style={styles.stationIcon}
+                    resizeMode="contain"
+                    source={stationIcons[item.stationType]}
+                  />
+                </View>
               </Marker>
             );
           })}
@@ -61,6 +69,16 @@ const styles = StyleSheet.create({
   image: {
     width: 32,
     height: 46,
+  },
+  stationIcon: {
+    width: 25,
+    height: 25,
+    position: 'absolute',
+    top: 5,
+    borderRadius: 20,
+    alignSelf: 'center',
+    zIndex: 2,
+    backgroundColor: 'white',
   },
 });
 

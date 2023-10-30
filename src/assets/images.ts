@@ -17,6 +17,13 @@ const appleLocation = require('./apple-map.png');
 const googleLocation = require('./google-map.png');
 const myLocation = require('./my-location.png');
 
+const esarjIconS = require('./esarj-icon-s.png');
+const zesIconS = require('./zes-logo-s.jpeg');
+const gChargeIconS = require('./gcharge-s.jpeg');
+const powerIconS = require('./power.jpg');
+const sharzIconS = require('./sharz-s.png');
+const voltrunIconS = require('./voltrun-s.png');
+
 export default {
   marker,
   locationPhone,
@@ -36,4 +43,11 @@ export default {
   appleLocation,
   googleLocation,
   myLocation,
+
+  esarjIconS,
+  zesIconS,
+  gChargeIconS,
+  powerIconS,
+  sharzIconS,
+  voltrunIconS,
 };
